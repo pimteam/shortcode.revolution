@@ -4,7 +4,8 @@
     <h2 class="nav-tab-wrapper">
         <a class='nav-tab <?php if($tab == 'posts'):?>nav-tab-active<?php endif;?>' href='admin.php?page=shortcode_revolution&tab=posts'><?php _e('Posts &amp; Comments', 'shortcode-revolution')?></a>
         <a class='nav-tab <?php if($tab == 'modals'):?>nav-tab-active<?php endif;?>' href='admin.php?page=shortcode_revolution&tab=modals'><?php _e('Popups &amp; Modals', 'shortcode-revolution')?></a>
-        <a class='nav-tab <?php if($tab == 'tabs'):?>nav-tab-active<?php endif;?>' href='admin.php?page=shortcode_revolution&tab=tabs'><?php _e('Tabs &amp; Columns', 'shortcode-revolution')?></a>
+        <a class='nav-tab <?php if($tab == 'columns'):?>nav-tab-active<?php endif;?>' href='admin.php?page=shortcode_revolution&tab=columns'><?php _e('Columns &amp; Grid', 'shortcode-revolution')?></a>
+        <a class='nav-tab <?php if($tab == 'tabs'):?>nav-tab-active<?php endif;?>' href='admin.php?page=shortcode_revolution&tab=tabs'><?php _e('Tabs', 'shortcode-revolution')?></a>
         <a class='nav-tab <?php if($tab == 'buttons'):?>nav-tab-active<?php endif;?>' href='admin.php?page=shortcode_revolution&tab=buttons'><?php _e('Buttons', 'shortcode-revolution')?></a>
 		  <a class='nav-tab <?php if($tab == 'tables'):?>nav-tab-active<?php endif;?>' href='admin.php?page=shortcode_revolution&tab=tables'><?php _e('Tables', 'shortcode-revolution')?></a>
 		  <a class='nav-tab <?php if($tab == 'flashcards'):?>nav-tab-active<?php endif;?>' href='admin.php?page=shortcode_revolution&tab=flashcards'><?php _e('Flashcards', 'shortcode-revolution')?></a>
@@ -194,6 +195,33 @@
 			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
 		    	<?php endif;?>
 			</form>   	
-    	<?php endif;?>
+    	<?php endif;
+    	if($tab == 'columns'):?>
+			<h2><?php _e('Shortcodes for columns and grids', 'shortcode-revolution');?></h2>
+			<form method="post">
+	    		<div class="srevo-form">
+				   <p><b><?php _e('Type of layout to create:', 'shortcode-revolution');?></b></p>
+				   <p><input type="radio" name="content_type" value="columns" <?php if(empty($_POST['content_type']) or $_POST['content_type'] == 'columns') echo 'checked';?> onclick="jQuery('#columnsColumnsDiv').show();jQuery('#columnsGridDiv').hide();"> <?php _e('Newspaper-like content flowing in columns', 'shortcode-revolution');?> <a href="https://www.w3schools.com/css/css3_multiple_columns.asp" target="_blank"><?php _e('See example', 'shortcode-revolution');?></a><br>
+				   <input type="radio" name="content_type" value="grid" <?php if(!empty($_POST['content_type']) and $_POST['content_type'] == 'grid') echo 'checked';?> onclick="jQuery('#columnsColumnsDiv').hide();jQuery('#columnsGridDiv').show();"> <?php _e('Grid: a fixed number of columns with different pieces of content into each column.', 'shortcode-revolution');?> 
+				   </p>
+				   
+				   <div id="columnsColumnsDiv" style='display:<?php echo (empty($_POST['content_type']) or $_POST['content_type'] == 'columns') ? 'block' : 'none';?>'>
+				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="column_count" value="<?php echo empty($_POST['column_count']) ? 3 : intval($_POST['column_count']);?>"></p>
+				   	<p><label><?php _e('Column gap:', 'shortcode-revolution');?></label> <input type="text" name="column_gap" value="<?php echo empty($_POST['column_gap']) ? '10px' : esc_attr($_POST['column_gap']);?>"></p>
+				   	<p><label><?php _e('Column rule:', 'shortcode-revolution');?></label> <input type="text" name="column_rule" value="<?php echo empty($_POST['column_rule']) ? '' : esc_attr($_POST['column_rule']);?>"> <span class="srevo-help"><?php _e('Short CSS notation. Example: 1px solid blue', 'shortcode-revolution');?></span></p>
+				   	<p><label><?php _e('Optimal column width:', 'shortcode-revolution');?></label> <input type="text" name="column_width" value="<?php echo empty($_POST['column_width']) ? '' : esc_attr($_POST['column_width']);?>"> <span class="srevo-help"><?php _e('Optional. Example: 100px', 'shortcode-revolution');?></span></p>
+				   </div>
+				   
+				   <div id="columnsGridDiv" style='display:<?php echo (!empty($_POST['content_type']) and $_POST['content_type'] == 'grid') ? 'block' : 'none';?>'>
+				   </div>
+				
+					<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
+		    	</div>
+		    	
+		    	<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+		    	<?php endif;?>
+			</form>   	
+		<?php endif;?>	
     </div>
 </div>
