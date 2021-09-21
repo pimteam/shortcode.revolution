@@ -1,0 +1,11 @@
+a.srevo-modal-button {
+    color: #fff;
+    background: blue;
+    padding: .5rem 1rem;
+    display: inline-block;
+    border-radius: 4px;
+    transition-duration: .25s;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+}

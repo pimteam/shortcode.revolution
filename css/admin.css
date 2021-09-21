@@ -1,0 +1,13 @@
+.srevo-hidden {
+	display: none;
+}
+
+.srevo-help {
+	font-size: 90%;
+	font-style: italic;
+}
+
+div.srevo-form label {
+	display: inline-block;
+	min-width: 15em; 
+}
