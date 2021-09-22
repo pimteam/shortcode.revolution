@@ -192,6 +192,7 @@
 		    	</div>
 		    	
 		    	<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>
+		    		<p class="srevo-help"><?php _e('If you have inserted contents of the modal window here you need to use the shortcode in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>
 			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
 		    	<?php endif;?>
 			</form>   	
@@ -210,6 +211,9 @@
 				   	<p><label><?php _e('Column gap:', 'shortcode-revolution');?></label> <input type="text" name="column_gap" value="<?php echo empty($_POST['column_gap']) ? '10px' : esc_attr($_POST['column_gap']);?>"></p>
 				   	<p><label><?php _e('Column rule:', 'shortcode-revolution');?></label> <input type="text" name="column_rule" value="<?php echo empty($_POST['column_rule']) ? '' : esc_attr($_POST['column_rule']);?>"> <span class="srevo-help"><?php _e('Short CSS notation. Example: 1px solid blue', 'shortcode-revolution');?></span></p>
 				   	<p><label><?php _e('Optimal column width:', 'shortcode-revolution');?></label> <input type="text" name="column_width" value="<?php echo empty($_POST['column_width']) ? '' : esc_attr($_POST['column_width']);?>"> <span class="srevo-help"><?php _e('Optional. Example: 100px', 'shortcode-revolution');?></span></p>
+				   	
+				   	<p><label><?php _e('Your content', 'shortcode-revolution');?></label>
+				   	<?php wp_editor(empty($_POST['columns_content']) ? '' : stripslashes($_POST['columns_content']), "columnsContent", ['textarea_name'=>'columns_content'])?></p> 	
 				   </div>
 				   
 				   <div id="columnsGridDiv" style='display:<?php echo (!empty($_POST['content_type']) and $_POST['content_type'] == 'grid') ? 'block' : 'none';?>'>
@@ -218,7 +222,8 @@
 					<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
 		    	</div>
 		    	
-		    	<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>
+		    	<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>	
+		    		<p class="srevo-help"><?php _e('If you have inserted contents for the columns or grid here you need to use the shortcode in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>
 			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
 		    	<?php endif;?>
 			</form>   	

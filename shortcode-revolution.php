@@ -20,6 +20,7 @@ require_once(SREVO_PATH.'/helpers/htmlhelper.php');
 require_once(SREVO_PATH.'/controllers/ajax.php');
 require_once(SREVO_PATH.'/controllers/posts.php');
 require_once(SREVO_PATH.'/controllers/popups.php');
+require_once(SREVO_PATH.'/controllers/grid.php');
 require_once(SREVO_PATH.'/controllers/templates.php');
 require_once(SREVO_PATH.'/controllers/generator.php');
 
