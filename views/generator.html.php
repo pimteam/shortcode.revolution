@@ -207,7 +207,7 @@
 				   </p>
 				   
 				   <div id="columnsColumnsDiv" style='display:<?php echo (empty($_POST['content_type']) or $_POST['content_type'] == 'columns') ? 'block' : 'none';?>'>
-				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="column_count" value="<?php echo empty($_POST['column_count']) ? 3 : intval($_POST['column_count']);?>"></p>
+				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="column_count" value="<?php echo empty($_POST['column_count']) ? 3 : intval($_POST['column_count']);?>" size="2" maxlength="2"></p>
 				   	<p><label><?php _e('Column gap:', 'shortcode-revolution');?></label> <input type="text" name="column_gap" value="<?php echo empty($_POST['column_gap']) ? '10px' : esc_attr($_POST['column_gap']);?>"></p>
 				   	<p><label><?php _e('Column rule:', 'shortcode-revolution');?></label> <input type="text" name="column_rule" value="<?php echo empty($_POST['column_rule']) ? '' : esc_attr($_POST['column_rule']);?>"> <span class="srevo-help"><?php _e('Short CSS notation. Example: 1px solid blue', 'shortcode-revolution');?></span></p>
 				   	<p><label><?php _e('Optimal column width:', 'shortcode-revolution');?></label> <input type="text" name="column_width" value="<?php echo empty($_POST['column_width']) ? '' : esc_attr($_POST['column_width']);?>"> <span class="srevo-help"><?php _e('Optional. Example: 100px', 'shortcode-revolution');?></span></p>
@@ -217,8 +217,8 @@
 				   </div>
 				   
 				   <div id="columnsGridDiv" style='display:<?php echo (!empty($_POST['content_type']) and $_POST['content_type'] == 'grid') ? 'block' : 'none';?>'>
-				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="grid_column_count" value="<?php echo empty($_POST['grid_column_count']) ? 3 : intval($_POST['grid_column_count']);?>" onkeyup="gridChangeNumColumns(this.value)"></p>
-				   	<p><label><?php _e('Number of items:', 'shortcode-revolution');?></label> <input type="text" name="num_items" value="<?php echo empty($_POST['num_items']) ? 3 : intval($_POST['num_items']);?>" onkeyup="gridChangeNumItems(this.value)"> <span class="srevo-help"><?php _e('Each item can be spread into multiple columns:', 'shortcode-revolution');?></span></p>
+				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="grid_column_count" value="<?php echo empty($_POST['grid_column_count']) ? 3 : intval($_POST['grid_column_count']);?>" onkeyup="gridChangeNumColumns(this.value)" size="2" maxlength="2"></p>
+				   	<p><label><?php _e('Number of items:', 'shortcode-revolution');?></label> <input type="text" name="num_items" value="<?php echo empty($_POST['num_items']) ? 3 : intval($_POST['num_items']);?>" onkeyup="gridChangeNumItems(this.value)" size="3" maxlength="3"> <span class="srevo-help"><?php _e('Each item can be spread into multiple columns:', 'shortcode-revolution');?></span></p>
 						<p><label><?php _e('Grid padding:', 'shortcode-revolution');?></label> <input type="text" name="grid_padding" value="<?php echo empty($_POST['grid_padding']) ? "10px" : esc_attr($_POST['grid_padding']);?>"></p>
 						<p><label><?php _e('Items padding:', 'shortcode-revolution');?></label> <input type="text" name="item_padding" value="<?php echo empty($_POST['item_padding']) ? "10px" : esc_attr($_POST['item_padding']);?>"></p>
 						<p><label><?php _e('Items border:', 'shortcode-revolution');?></label> <input type="text" name="item_border" value="<?php echo empty($_POST['item_border']) ? "1px solid rgba(0, 0, 0, 0.8)" : esc_attr($_POST['item_border']);?>"></p>
