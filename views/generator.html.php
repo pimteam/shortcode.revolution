@@ -217,6 +217,19 @@
 				   </div>
 				   
 				   <div id="columnsGridDiv" style='display:<?php echo (!empty($_POST['content_type']) and $_POST['content_type'] == 'grid') ? 'block' : 'none';?>'>
+				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="grid_column_count" value="<?php echo empty($_POST['grid_column_count']) ? 3 : intval($_POST['grid_column_count']);?>" onkeyup="gridChangeNumColumns(this.value)"></p>
+				   	<p><label><?php _e('Number of items:', 'shortcode-revolution');?></label> <input type="text" name="num_items" value="<?php echo empty($_POST['num_items']) ? 3 : intval($_POST['num_items']);?>" onkeyup="gridChangeNumItems(this.value)"> <span class="srevo-help"><?php _e('Each item can be spread into multiple columns:', 'shortcode-revolution');?></span></p>
+						<p><label><?php _e('Grid padding:', 'shortcode-revolution');?></label> <input type="text" name="grid_padding" value="<?php echo empty($_POST['grid_padding']) ? "10px" : esc_attr($_POST['grid_padding']);?>"></p>
+						<p><label><?php _e('Items padding:', 'shortcode-revolution');?></label> <input type="text" name="item_padding" value="<?php echo empty($_POST['item_padding']) ? "10px" : esc_attr($_POST['item_padding']);?>"></p>
+						<p><label><?php _e('Items border:', 'shortcode-revolution');?></label> <input type="text" name="item_border" value="<?php echo empty($_POST['item_border']) ? "1px solid rgba(0, 0, 0, 0.8)" : esc_attr($_POST['item_border']);?>"></p>
+						
+						<div id="previewGrid">
+							<div class="grid-container" id="mainGrid">
+								 <div class="grid-item"><?php _e('Columns:','shortcode-revolution');?> <input type="text" size="2" value="1"></div>
+								  <div class="grid-item"><?php _e('Columns:','shortcode-revolution');?> <input type="text" size="2" value="1"></div>
+								  <div class="grid-item"><?php _e('Columns:','shortcode-revolution');?> <input type="text" size="2" value="1"></div>  
+							</div>
+						</div>
 				   </div>
 				
 					<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
@@ -227,6 +240,38 @@
 			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
 		    	<?php endif;?>
 			</form>   	
-		<?php endif;?>	
-    </div>
+			<style type="text/css">
+			/* Default CSS for the grid */
+			.grid-container {
+			  display: grid;
+			  grid-template-columns: auto auto auto;			  
+			  padding: 10px;
+			}
+			.grid-item {			  
+			  border: 1px solid rgba(0, 0, 0, 0.8);
+			  padding: 10px;			 
+			  text-align: center;
+			}
+			</style>
+			<script type="text/javascript" >
+			function gridChangeNumColumns(num) {
+				if(isNaN(num)) return false;
+				let gridColumns = '';
+				for(i = 0; i < num; i++) gridColumns += 'auto ';
+				jQuery('.grid-container').css('grid-template-columns', gridColumns);
+			}
+			
+			function gridChangeNumItems(num) {
+				if(isNaN(num)) return false;
+				let itemHTML = '<div class="grid-item"><?php _e('Columns:','shortcode-revolution');?> <input type="text" size="2" value="1"></div>';
+				let itemsHTML = '';
+				for(i = 0; i < num; i++) {
+					itemsHTML += itemHTML;
+				}
+				
+				jQuery('#mainGrid').html(itemsHTML);
+			}
+			</script>
+		<?php endif;// end column / grid ?>	
+    </div> <!-- end wrap -->
 </div>

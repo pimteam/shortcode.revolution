@@ -62,20 +62,22 @@ class ShortcodeRevolutionGenerator {
 			break;
 			
 			case 'columns':
-				if($_POST['content_type'] == 'columns') {
-					$shortcode = '[srevo-columns';
-		   			if(!empty($_POST['column_count'])) $shortcode .= ' column_count="'.intval($_POST['column_count']).'"';
-		   			if(!empty($_POST['column_gap'])) $shortcode .= ' column_gap="'.esc_attr($_POST['column_gap']).'"';
-		   			if(!empty($_POST['column_rule'])) $shortcode .= ' column_rule="'.esc_attr($_POST['column_rule']).'"';
-		   			if(!empty($_POST['column_width'])) $shortcode .= ' column_width="'.esc_attr($_POST['column_width']).'"';
-		   			$shortcode .= ']';			   			
-		   			$shortcode .= stripslashes($_POST['columns_content']);
-			   	$shortcode .= '[/srevo-columns]';					
-				}
-				
-				if($_POST['content_type'] == 'grid') {
+				if(!empty($_POST['generate'])) {
+					if($_POST['content_type'] == 'columns') {
+						$shortcode = '[srevo-columns';
+			   			if(!empty($_POST['column_count'])) $shortcode .= ' column_count="'.intval($_POST['column_count']).'"';
+			   			if(!empty($_POST['column_gap'])) $shortcode .= ' column_gap="'.esc_attr($_POST['column_gap']).'"';
+			   			if(!empty($_POST['column_rule'])) $shortcode .= ' column_rule="'.esc_attr($_POST['column_rule']).'"';
+			   			if(!empty($_POST['column_width'])) $shortcode .= ' column_width="'.esc_attr($_POST['column_width']).'"';
+			   			$shortcode .= ']';			   			
+			   			$shortcode .= stripslashes($_POST['columns_content']);
+				   	$shortcode .= '[/srevo-columns]';					
+					}
 					
-				}
+					if($_POST['content_type'] == 'grid') {
+						
+					}
+				}	
 			break;
 		} // end switch
 		
