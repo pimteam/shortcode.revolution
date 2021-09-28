@@ -217,17 +217,17 @@
 				   </div>
 				   
 				   <div id="columnsGridDiv" style='display:<?php echo (!empty($_POST['content_type']) and $_POST['content_type'] == 'grid') ? 'block' : 'none';?>'>
-				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="grid_column_count" value="<?php echo empty($_POST['grid_column_count']) ? 3 : intval($_POST['grid_column_count']);?>" onkeyup="gridChangeNumColumns(this.value)" size="2" maxlength="2"></p>
-				   	<p><label><?php _e('Number of items:', 'shortcode-revolution');?></label> <input type="text" name="num_items" value="<?php echo empty($_POST['num_items']) ? 3 : intval($_POST['num_items']);?>" onkeyup="gridChangeNumItems(this.value)" size="3" maxlength="3"> <span class="srevo-help"><?php _e('Each item can be spread into multiple columns:', 'shortcode-revolution');?></span></p>
-						<p><label><?php _e('Grid padding:', 'shortcode-revolution');?></label> <input type="text" name="grid_padding" value="<?php echo empty($_POST['grid_padding']) ? "10px" : esc_attr($_POST['grid_padding']);?>"></p>
-						<p><label><?php _e('Items padding:', 'shortcode-revolution');?></label> <input type="text" name="item_padding" value="<?php echo empty($_POST['item_padding']) ? "10px" : esc_attr($_POST['item_padding']);?>"></p>
-						<p><label><?php _e('Items border:', 'shortcode-revolution');?></label> <input type="text" name="item_border" value="<?php echo empty($_POST['item_border']) ? "1px solid rgba(0, 0, 0, 0.8)" : esc_attr($_POST['item_border']);?>"></p>
+				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="grid_column_count" value="<?php echo $grid_columns;?>" onkeyup="gridChangeNumColumns(this.value)" size="2" maxlength="2"></p>
+				   	<p><label><?php _e('Number of items:', 'shortcode-revolution');?></label> <input type="text" name="num_items" value="<?php echo $grid_items;?>" onkeyup="gridChangeNumItems(this.value)" size="3" maxlength="3"> <span class="srevo-help"><?php _e('Each item can be spread into multiple columns:', 'shortcode-revolution');?></span></p>
+						<p><label><?php _e('Grid padding:', 'shortcode-revolution');?></label> <input type="text" name="grid_padding" id="gridPadding" value="<?php echo $grid_padding;?>" onkeyup="gridChangePadding(this.value)"></p>
+						<p><label><?php _e('Items padding:', 'shortcode-revolution');?></label> <input type="text" name="item_padding" id="gridItemPadding" value="<?php echo $item_padding;?>" onkeyup="gridChangeItemPadding(this.value)"></p>
+						<p><label><?php _e('Items border:', 'shortcode-revolution');?></label> <input type="text" name="item_border" value="<?php echo $item_border;?>" onkeyup="gridChangeBorder(this.value)" id="gridBorder"></p>
 						
 						<div id="previewGrid">
 							<div class="grid-container" id="mainGrid">
-								 <div class="grid-item"><?php _e('Columns:','shortcode-revolution');?> <input type="text" size="2" value="1"></div>
-								  <div class="grid-item"><?php _e('Columns:','shortcode-revolution');?> <input type="text" size="2" value="1"></div>
-								  <div class="grid-item"><?php _e('Columns:','shortcode-revolution');?> <input type="text" size="2" value="1"></div>  
+								<?php for($i = 0; $i < $grid_items; $i++):?>
+								 <div class="grid-item" id="gridItem<?php echo $i;?>"><?php printf(__('Content %d','shortcode-revolution'), $i+1);?> </div>
+								<?php endfor;?> 
 							</div>
 						</div>
 				   </div>
@@ -244,12 +244,12 @@
 			/* Default CSS for the grid */
 			.grid-container {
 			  display: grid;
-			  grid-template-columns: auto auto auto;			  
-			  padding: 10px;
+			  grid-template-columns: <?php for($i=0; $i < $grid_columns; $i++):?> auto<?php endfor;?>;			  
+			  padding: <?php echo $grid_padding;?>;
 			}
 			.grid-item {			  
-			  border: 1px solid rgba(0, 0, 0, 0.8);
-			  padding: 10px;			 
+			  border: <?php echo $item_border;?>;
+			  padding: <?php echo $item_padding;?>;	 
 			  text-align: center;
 			}
 			</style>
@@ -259,17 +259,37 @@
 				let gridColumns = '';
 				for(i = 0; i < num; i++) gridColumns += 'auto ';
 				jQuery('.grid-container').css('grid-template-columns', gridColumns);
+				
+				gridChangePadding(jQuery('#gridPadding').val());
+				gridChangeItemPadding(jQuery('#gridItemPadding').val());
+				gridChangeBorder(jQuery('#gridBorder').val());
 			}
 			
 			function gridChangeNumItems(num) {
 				if(isNaN(num)) return false;
-				let itemHTML = '<div class="grid-item"><?php _e('Columns:','shortcode-revolution');?> <input type="text" size="2" value="1"></div>';
+				let itemHTML = '<div class="grid-item"><?php _e('Content %d','shortcode-revolution');?> </div>';
 				let itemsHTML = '';
 				for(i = 0; i < num; i++) {
-					itemsHTML += itemHTML;
+					let thisItemHTML = itemHTML.replace('%d', i + 1);
+					itemsHTML += thisItemHTML;
 				}
 				
 				jQuery('#mainGrid').html(itemsHTML);
+				gridChangePadding(jQuery('#gridPadding').val());
+				gridChangeItemPadding(jQuery('#gridItemPadding').val());
+				gridChangeBorder(jQuery('#gridBorder').val());
+			}
+			
+			function gridChangePadding(val) {
+				jQuery('.grid-container').css('padding', val);
+			}
+			
+			function gridChangeItemPadding(val) {
+				jQuery('.grid-item').css('padding', val);
+			}
+			
+			function gridChangeBorder(val) {
+				jQuery('.grid-item').css('border', val);
 			}
 			</script>
 		<?php endif;// end column / grid ?>	

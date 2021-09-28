@@ -75,9 +75,29 @@ class ShortcodeRevolutionGenerator {
 					}
 					
 					if($_POST['content_type'] == 'grid') {
+						$grid_items = empty($_POST['num_items']) ? 3 : intval($_POST['num_items']);
 						
+						$shortcode = '[srevo-grid';
+			   			if(!empty($_POST['grid_column_count'])) $shortcode .= ' column_count="'.intval($_POST['grid_column_count']).'"';
+			   			if(!empty($_POST['grid_padding'])) $shortcode .= ' grid_padding="'.esc_attr($_POST['grid_padding']).'"';
+			   			if(!empty($_POST['item_padding'])) $shortcode .= ' item_padding="'.esc_attr($_POST['item_padding']).'"';
+			   			if(!empty($_POST['item_border'])) $shortcode .= ' item_border="'.esc_attr($_POST['item_border']).'"';
+			   			$shortcode .= ']'."\n";			   			
+			   			
+							for($i=0; $i < $grid_items; $i++) {
+								$shortcode .= '[srevo-grid-item] '.sprintf(__('Content %d', 'shortcode-revolution'), $i+1).' [/srevo-grid-item]'."\n";
+							} 			   			
+			   			
+				   	$shortcode .= '[/srevo-grid]';			
 					}
 				}	
+				
+				// set defaults for the grid
+				$grid_columns = empty($_POST['grid_column_count']) ? 3 : intval($_POST['grid_column_count']);
+				$grid_items = empty($_POST['num_items']) ? 3 : intval($_POST['num_items']);
+				$grid_padding = empty($_POST['grid_padding']) ? "10px" : esc_attr($_POST['grid_padding']);
+				$item_padding = empty($_POST['item_padding']) ? "10px" : esc_attr($_POST['item_padding']);
+				$item_border = empty($_POST['item_border']) ? "1px solid rgba(0, 0, 0, 0.8)" : esc_attr($_POST['item_border']);
 			break;
 		} // end switch
 		
