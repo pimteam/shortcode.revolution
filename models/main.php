@@ -30,8 +30,10 @@ class ShortcodeRevolution {
 		// lightbox / modal
 		add_shortcode('srevo-modal', ['ShortcodeRevolutionPopups', 'modal']);
 		
-		// columns
+		// columns & grid
 		add_shortcode('srevo-columns', ['ShortcodeRevolutionGrid', 'columns']);
+		add_shortcode('srevo-grid', ['ShortcodeRevolutionGrid', 'grid']);
+		add_shortcode('srevo-grid-item', ['ShortcodeRevolutionGrid', 'grid_item']);
 		
 	} // end init
 	

@@ -22,4 +22,25 @@ class ShortcodeRevolutionGrid {
 		
 		return $html;
 	} // end column
+	
+	// grid shortcode
+	public static function grid($atts, $content = '') {
+		$grid_columns = empty($atts['column_count']) ? 3 : intval($atts['column_count']);
+		$grid_padding = empty($atts['grid_padding']) ? '10px' : sanitize_text_field($atts['grid_padding']);
+		$item_padding = empty($atts['item_padding']) ? '10px' : sanitize_text_field($atts['item_padding']);
+		$item_border = empty($atts['item_border']) ? '10px' : sanitize_text_field($atts['item_border']);
+		
+		$unique_cnt = srevo_unique_cnt();
+		
+		ob_start();
+		require ShortcodeRevolutionTemplates :: load('grid');
+		$content = ob_get_clean();
+		return $content;
+	} // end grid
+	
+	// grid item
+	public static function grid_item($atts, $content = '') {
+		$html = '<div class="srevo-grid-item">'.apply_filters('the_content', $content).'</div>';
+		return $html;
+	} // end grid_item
 }

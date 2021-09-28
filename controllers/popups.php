@@ -9,11 +9,8 @@ class ShortcodeRevolutionPopups {
 		wp_register_script('jquery-modal', SREVO_URL.'lib/jquery-modal/jquery.modal.min.js', ['jquery'], '0.9.1', true);
 		wp_enqueue_script('jquery-modal');		
 		wp_enqueue_style('jquery-modal-css', SREVO_URL.'lib/jquery-modal/jquery.modal.min.css');		
-		
-		// ensure unque ID
-		if(empty($_POST['srevo_unique_cnt'])) $_POST['srevo_unique_cnt'] = 1;
-		else $_POST['srevo_unique_cnt'] = intval($_POST['srevo_unique_cnt']) + 1; 
-		$unique_cnt = $_POST['srevo_unique_cnt'];
+				 
+		$unique_cnt = srevo_unique_cnt();
 		
 		$content = apply_filters('the_content', $content);	
 		
