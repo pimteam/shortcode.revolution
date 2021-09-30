@@ -236,7 +236,10 @@
 		    	</div>
 		    	
 		    	<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>	
-		    		<p class="srevo-help"><?php _e('If you have inserted contents for the columns or grid here you need to use the shortcode in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>
+		    		<?php if($_POST['content_type'] == 'columns'):?><p class="srevo-help"><?php _e('If you have inserted contents for the columns or grid here you need to use the shortcode in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>
+					<?php else:?>
+					<p class="srevo-help"><?php printf(__('In each [srevo-grid-item] shortcode you can pass individual "grid_column" parameter to specify that the item will spread over several columns in the grid. <a href="%1$s" target="_blank">Learn more here</a>. Example: %2$s', 'srevo'), 'https://www.w3schools.com/css/css_grid_item.asp', '[srevo-grid-item grid_column="1 / 5"]');?></p>		    		
+		    		<?php endif;?>
 			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
 		    	<?php endif;?>
 			</form>   	

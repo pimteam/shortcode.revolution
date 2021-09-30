@@ -40,7 +40,9 @@ class ShortcodeRevolutionGrid {
 	
 	// grid item
 	public static function grid_item($atts, $content = '') {
-		$html = '<div class="srevo-grid-item">'.apply_filters('the_content', $content).'</div>';
+		$grid_column = empty($atts['grid_column']) ? '' : 'grid-column: '.esc_attr($atts['grid_column']).';';
+			
+		$html = '<div class="srevo-grid-item" style="'.$grid_column.'">'.apply_filters('the_content', $content).'</div>';
 		return $html;
 	} // end grid_item
 }
