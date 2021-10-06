@@ -196,7 +196,7 @@
 			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
 		    	<?php endif;?>
 			</form>   	
-    	<?php endif;
+    	<?php endif; // end if modals
     	if($tab == 'columns'):?>
 			<h2><?php _e('Shortcodes for columns and grids', 'shortcode-revolution');?></h2>
 			<form method="post">
@@ -295,6 +295,40 @@
 				jQuery('.grid-item').css('border', val);
 			}
 			</script>
-		<?php endif;// end column / grid ?>	
+		<?php endif;// end column / grid 
+		if($tab == 'tabs'):?>
+			<h2><?php _e('Shortcodes for columns and grids', 'shortcode-revolution');?></h2>
+			<form method="post">
+	    		<div class="srevo-form">
+	    			<p><label><?php _e('Number of tabs:', 'shortcode-revolution');?></label> <input type="text" name="num_tabs" value="<?php echo empty($_POST['num_tabs']) ? '' : intval($_POST['num_tabs']);?>" size="3" maxlength="2"> <input type="submit" value="<?php _e('Show form', 'shortcode-revolution');?>" class="button-primary"></p>
+	    			<?php if(!empty($_POST['num_tabs']) and intval($_POST['num_tabs']) > 0):?>
+	    				<div id="srevoTabsForm">
+	    					<ul>
+	    						<?php for($i = 1; $i <= $_POST['num_tabs']; $i++):?>
+	    							<li><a href="#srevo-tabs-<?php echo $i;?>"><?php printf(__('Tab %d', 'srevo'), $i);?></a> <input type="text" name="tab_text_<?php echo $i;?>" value="<?php echo empty($_POST['tab_text_'.$i]) ? '' : esc_attr(stripslashes($_POST['tab_text_'.$i]));?>"></li>
+	    						<?php endfor;?>
+	    					</ul>
+	    					<?php for($i = 1; $i <= $_POST['num_tabs']; $i++):
+	    						$tab_content = empty($_POST['tab_content_'.$i]) ? '' : wp_kses(stripslashes($_POST['tab_content_'.$i]))?>
+	    						<div id="srevo-tabs-<?php echo $i;?>">
+	    							<?php wp_editor($tab_content, "tab_content_".$i, ['textarea_name' => 'tab_content_'.$i]); ?>
+	    						</div>
+	    					<?php endfor;?>
+	    				</div>
+	    			<?php endif;?>	
+	    		</div>
+	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>			    
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+		    	<?php endif;?>
+			</form>   	
+			
+			<script type="text/javascript" >
+			<?php if(!empty($_POST['num_tabs']) and intval($_POST['num_tabs']) > 0):?>
+				document.addEventListener("DOMContentLoaded", function() {
+					jQuery('#srevoTabsForm').tabs().find('.ui-tabs-nav li').off('keydown');
+				});
+			<?php endif;?>
+			</script> 
+		<?php endif; // end if tabs ;?>
     </div> <!-- end wrap -->
 </div>

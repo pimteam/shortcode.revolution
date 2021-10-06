@@ -101,6 +101,10 @@ class ShortcodeRevolutionGenerator {
 			break;
 		} // end switch
 		
+		// enqueue jquery-ui
+		wp_enqueue_script('jquery-ui-core');		
+		wp_enqueue_script('jquery-ui-tabs');
+		wp_enqueue_style('jquery-ui-style', SREVO_URL.'css/jquery-ui.css');
 		include(SREVO_PATH."/views/generator.html.php");
 	} // end main
 }
