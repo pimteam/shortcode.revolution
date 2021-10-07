@@ -308,14 +308,17 @@
 	    							<li><a href="#srevo-tabs-<?php echo $i;?>"><?php printf(__('Tab %d', 'srevo'), $i);?></a> <input type="text" name="tab_text_<?php echo $i;?>" value="<?php echo empty($_POST['tab_text_'.$i]) ? '' : esc_attr(stripslashes($_POST['tab_text_'.$i]));?>"></li>
 	    						<?php endfor;?>
 	    					</ul>
-	    					<?php for($i = 1; $i <= $_POST['num_tabs']; $i++):
-	    						$tab_content = empty($_POST['tab_content_'.$i]) ? '' : wp_kses(stripslashes($_POST['tab_content_'.$i]))?>
+	    					<?php for($i = 1; $i <= $_POST['num_tabs']; $i++):	    					
+	    						$tab_content = empty($_POST['tab_content_'.$i]) ? '' : wp_kses_post(stripslashes($_POST['tab_content_'.$i]));
+	    						?>
 	    						<div id="srevo-tabs-<?php echo $i;?>">
 	    							<?php wp_editor($tab_content, "tab_content_".$i, ['textarea_name' => 'tab_content_'.$i]); ?>
 	    						</div>
 	    					<?php endfor;?>
 	    				</div>
-	    			<?php endif;?>	
+	    				<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
+	    			<?php endif; // end if num tabs ?>	
+    			
 	    		</div>
 	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>			    
 			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>

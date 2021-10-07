@@ -99,11 +99,29 @@ class ShortcodeRevolutionGenerator {
 				$item_padding = empty($_POST['item_padding']) ? "10px" : esc_attr($_POST['item_padding']);
 				$item_border = empty($_POST['item_border']) ? "1px solid rgba(0, 0, 0, 0.8)" : esc_attr($_POST['item_border']);
 			break;
+			
+			case 'tabs':
+				if(!empty($_POST['generate'])) {
+					$shortcode = '[srevo-tabs]';
+		   		$num_tabs = intval($_POST['num_tabs']);
+		   		if($num_tabs <= 1) $num_tabs = 1;
+					
+					for($i = 1; $i <= $num_tabs; $i++) {	
+						$shortcode .= "\n[srevo-tab]";
+						$tab_content = wp_kses_post(stripslashes($_POST['tab_content_'.$i]));
+						$shortcode .= $tab_content;
+						$shortcode .= "[/srevo-tab']\n";
+					}	   		
+		   		
+			   	$shortcode .= '[/srevo-tabs]';
+				}
+				
+				wp_enqueue_script('jquery-ui-tabs');
+			break;
 		} // end switch
 		
 		// enqueue jquery-ui
-		wp_enqueue_script('jquery-ui-core');		
-		wp_enqueue_script('jquery-ui-tabs');
+		wp_enqueue_script('jquery-ui-core');
 		wp_enqueue_style('jquery-ui-style', SREVO_URL.'css/jquery-ui.css');
 		include(SREVO_PATH."/views/generator.html.php");
 	} // end main
