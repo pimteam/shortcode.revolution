@@ -316,6 +316,7 @@
 	    						</div>
 	    					<?php endfor;?>
 	    				</div>
+	    				<p class="srevo-help"><?php _e('If you have inserted contents for the tabs here you need to use the shortcode in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>
 	    				<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
 	    			<?php endif; // end if num tabs ?>	
     			

@@ -35,6 +35,10 @@ class ShortcodeRevolution {
 		add_shortcode('srevo-grid', ['ShortcodeRevolutionGrid', 'grid']);
 		add_shortcode('srevo-grid-item', ['ShortcodeRevolutionGrid', 'grid_item']);
 		
+		// tabs
+		add_shortcode('srevo-tabs', ['ShortcodeRevolutionTabs', 'tabs']);
+		add_shortcode('srevo-tab', ['ShortcodeRevolutionTabs', 'tab']);
+		
 	} // end init
 	
 	public static function admin_scripts() {

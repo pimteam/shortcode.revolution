@@ -107,10 +107,10 @@ class ShortcodeRevolutionGenerator {
 		   		if($num_tabs <= 1) $num_tabs = 1;
 					
 					for($i = 1; $i <= $num_tabs; $i++) {	
-						$shortcode .= "\n[srevo-tab]";
+						$shortcode .= "\n[srevo-tab title=\"".stripslashes($_POST['tab_text_'.$i])."\"]";
 						$tab_content = wp_kses_post(stripslashes($_POST['tab_content_'.$i]));
 						$shortcode .= $tab_content;
-						$shortcode .= "[/srevo-tab']\n";
+						$shortcode .= "[/srevo-tab]\n";
 					}	   		
 		   		
 			   	$shortcode .= '[/srevo-tabs]';
