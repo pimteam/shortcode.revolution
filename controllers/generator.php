@@ -118,6 +118,11 @@ class ShortcodeRevolutionGenerator {
 				
 				wp_enqueue_script('jquery-ui-tabs');
 			break;
+			
+			case 'buttons':
+				wp_enqueue_style( 'wp-color-picker' );
+				wp_enqueue_script( 'wp-color-picker' );		
+			break;
 		} // end switch
 		
 		// enqueue jquery-ui
