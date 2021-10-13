@@ -1,3 +1,4 @@
+/* Modal window */
 a.srevo-modal-button {
     color: #fff;
     background: blue;
@@ -8,4 +9,18 @@ a.srevo-modal-button {
     border: none;
     font-size: 14px;
     font-weight: bold;
+}
+
+/* Button classes */
+
+button.srevo-button-flat {
+    background: none;
+    background-color: #2271b1;
+    color: #fff;
+    text-shadow: none;
+    padding: 10px;
+    border: 0;	 
+	 box-shadow: none;
+	 border-radius: 0px;   
+	 font-weight: bold;
 }

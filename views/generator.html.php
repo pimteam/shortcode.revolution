@@ -348,11 +348,11 @@
 		    			</select></p>
 		    			<p><label><?php _e('Style and classes:', 'shortcode-revolution');?></label> <select name="button_style">
 		    				<option value=""><?php _e('- Select a built-in style -');?></option>
-		    				<option value="default" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'default') echo 'selected';?>><?php _e('Default', 'srevo');?></option>
-		    				<option value="flat" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'flat') echo 'selected';?>><?php _e('Flat', 'srevo');?></option>
-		    				<option value="empty" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'empty') echo 'selected';?>><?php _e('Empty', 'srevo');?></option>
-		    				<option value="glass" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'glass') echo 'selected';?>><?php _e('Glass', 'srevo');?></option>
-		    				<option value="3d" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == '3d') echo 'selected';?>><?php _e('3d', 'srevo');?></option>
+		    				<option value="button-primary" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'button-primary') echo 'selected';?>><?php _e('Default', 'srevo');?></option>
+		    				<option value="srevo-button-flat" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'srevo-button-flat') echo 'selected';?>><?php _e('Flat', 'srevo');?></option>
+		    				<option value="srevo-button-empty" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'srevo-button-empty') echo 'selected';?>><?php _e('Empty', 'srevo');?></option>
+		    				<option value="srevo-button-glass" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'srevo-button-glass') echo 'selected';?>><?php _e('Glass', 'srevo');?></option>
+		    				<option value="srevo-button-3d" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'srevo-button-3d') echo 'selected';?>><?php _e('3d', 'srevo');?></option>
 		    			</select>
 		    			<?php _e('Custom CSS classes:', 'srevo');?> <input type="text" name="button_classes" value="<?php echo empty($_POST['button_classes']) ? '': esc_attr($_POST['button_classes']);?>"></p>
 		    			<p><label><?php _e('Text color:', 'shortcode-revolution');?></label> <input type="text" name="button_text_color" value="<?php echo empty($_POST['button_text_color']) ? '' : esc_attr($_POST['button_text_color'])?>" class="srevo-color-field"></p>
@@ -366,7 +366,7 @@
 					
 					<div>
 							<h3><?php _e('Preview', 'srevo');?></h3>
-							<button id="srevoButtonPreview" onclick="alert('<?php _e('Demo, non functional', 'srevo');?>');return false;" formtarget="<?php if(!empty($_POST['button_target']) and $_POST['button_target'] == '_blank') echo 'selected'?>" class="<?php if(!empty($_POST['button_style'])) echo 'srevo-button-'.esc_attr($_POST['button_style'])?> <?php echo empty($_POST['button_classes']) ? '' : esc_attr($_POST['button_classes']);?>" style="font-size:1em; padding: 5px; background-color: #1e73be; color: white;"><?php echo empty($_POST['button_text']) ? __('Demo Button', 'srevo') : esc_attr($_POST['button_text']);?></button>
+							<button id="srevoButtonPreview" onclick="alert('<?php _e('Demo, non functional', 'srevo');?>');return false;" formtarget="<?php if(!empty($_POST['button_target']) and $_POST['button_target'] == '_blank') echo 'selected'?>" class="srevo-button <?php if(!empty($_POST['button_style'])): echo esc_attr($_POST['button_style']); else: echo 'button'; endif;?> <?php echo empty($_POST['button_classes']) ? '' : esc_attr($_POST['button_classes']);?>"><?php echo empty($_POST['button_text']) ? __('Demo Button', 'srevo') : esc_attr($_POST['button_text']);?></button>
 					</div>	
 				</div>
 				
@@ -380,9 +380,15 @@
 			});		
 			
 			function srevoPreviewButton(frm) {
-				
+				jQuery('#srevoButtonPreview').html(frm.button_text.value);
+				<?php if(!empty($_POST['button_style'])):?>
+				console.log('<?php echo esc_attr($_POST['button_style'])?>');
+				jQuery('#srevoButtonPreview').removeClass('<?php echo esc_attr($_POST['button_style'])?>');
+				<?php endif;?>
+				jQuery('#srevoButtonPreview').addClass(frm.button_style.value);
 			}	
 			</script> 
+			
 		<?php endif; // end if buttons ;?>
     </div> <!-- end wrap -->
 </div>

@@ -122,6 +122,9 @@ class ShortcodeRevolutionGenerator {
 			case 'buttons':
 				wp_enqueue_style( 'wp-color-picker' );
 				wp_enqueue_script( 'wp-color-picker' );		
+				
+				// front css is needed here too
+				ShortcodeRevolution :: front_scripts();
 			break;
 		} // end switch
 		
