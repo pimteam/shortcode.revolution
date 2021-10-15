@@ -366,7 +366,11 @@
 					
 					<div>
 							<h3><?php _e('Preview', 'srevo');?></h3>
-							<button id="srevoButtonPreview" onclick="alert('<?php _e('Demo, non functional', 'srevo');?>');return false;" formtarget="<?php if(!empty($_POST['button_target']) and $_POST['button_target'] == '_blank') echo 'selected'?>" class="srevo-button <?php if(!empty($_POST['button_style'])): echo esc_attr($_POST['button_style']); else: echo 'button'; endif;?> <?php echo empty($_POST['button_classes']) ? '' : esc_attr($_POST['button_classes']);?>"><?php echo empty($_POST['button_text']) ? __('Demo Button', 'srevo') : esc_attr($_POST['button_text']);?></button>
+							<button id="srevoButtonPreview" onclick="alert('<?php _e('Demo, non functional', 'srevo');?>');return false;" formtarget="<?php if(!empty($_POST['button_target']) and $_POST['button_target'] == '_blank') echo 'selected'?>" class="srevo-button <?php if(!empty($_POST['button_style'])): echo esc_attr($_POST['button_style']); else: echo 'button'; endif;?> <?php echo empty($_POST['button_classes']) ? '' : esc_attr($_POST['button_classes']);?>" style='<?php if(!empty($_POST['button_text_color'])) echo 'color:'.esc_attr($_POST['button_text_color']).';';
+							if(!empty($_POST['button_bg_color'])) echo 'background-color:'.esc_attr($_POST['button_bg_color']).';';
+							if(!empty($_POST['button_font_size'])) echo 'font-size:'.esc_attr($_POST['button_font_size']).';';
+							if(!empty($_POST['button_padding'])) echo 'padding:'.esc_attr($_POST['button_padding']).';';
+							if(!empty($_POST['button_radius'])) echo 'border-radius:'.esc_attr($_POST['button_radius']).';';?>'><?php echo empty($_POST['button_text']) ? __('Demo Button', 'srevo') : esc_attr($_POST['button_text']);?></button>
 					</div>	
 				</div>
 				
@@ -380,12 +384,22 @@
 			});		
 			
 			function srevoPreviewButton(frm) {
+				// remove all existing classes
+				document.getElementById('srevoButtonPreview').className = '';
+					
 				jQuery('#srevoButtonPreview').html(frm.button_text.value);
-				<?php if(!empty($_POST['button_style'])):?>
-				console.log('<?php echo esc_attr($_POST['button_style'])?>');
-				jQuery('#srevoButtonPreview').removeClass('<?php echo esc_attr($_POST['button_style'])?>');
-				<?php endif;?>
+				
 				jQuery('#srevoButtonPreview').addClass(frm.button_style.value);
+				
+				jQuery('#srevoButtonPreview').addClass(frm.button_classes.value);
+				
+				jQuery('#srevoButtonPreview').css({
+						'color': frm.button_text_color.value, 
+						'background-color': frm.button_bg_color.value,
+						'font-size': frm.button_font_size.value,
+						'padding': frm.button_padding.value,
+						'border-radius': frm.button_radius.value,
+					});
 			}	
 			</script> 
 			
