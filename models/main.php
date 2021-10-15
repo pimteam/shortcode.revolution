@@ -39,6 +39,9 @@ class ShortcodeRevolution {
 		add_shortcode('srevo-tabs', ['ShortcodeRevolutionTabs', 'tabs']);
 		add_shortcode('srevo-tab', ['ShortcodeRevolutionTabs', 'tab']);
 		
+		// buttons
+		add_shortcode('srevo-button', ['ShortcodeRevolutionButtons', 'button']);
+		
 	} // end init
 	
 	public static function admin_scripts() {

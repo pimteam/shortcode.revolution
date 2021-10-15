@@ -120,6 +120,14 @@ class ShortcodeRevolutionGenerator {
 			break;
 			
 			case 'buttons':
+				if(!empty($_POST['generate'])) {
+					$shortcode = '[srevo-button';
+					
+					if(!empty($_POST['button_text'])) $shortcode .= 'button_text="'.esc_attr($_POST['button_text']).'" ';				
+					
+					$shortcode .= ']';
+				}
+				
 				wp_enqueue_style( 'wp-color-picker' );
 				wp_enqueue_script( 'wp-color-picker' );		
 				
