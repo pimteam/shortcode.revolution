@@ -123,7 +123,15 @@ class ShortcodeRevolutionGenerator {
 				if(!empty($_POST['generate'])) {
 					$shortcode = '[srevo-button';
 					
-					if(!empty($_POST['button_text'])) $shortcode .= 'button_text="'.esc_attr($_POST['button_text']).'" ';				
+					$shortcode .= ' button_text="'.esc_attr($_POST['button_text']).'"';
+					$shortcode .= ' button_href="'.esc_attr($_POST['button_href']).'"';					
+					$shortcode .= ' button_style="'.esc_attr($_POST['button_style']).'" ';
+					$shortcode .= ' button_classes="'.esc_attr($_POST['button_classes']).'"';
+					$shortcode .= ' button_text_color="'.esc_attr($_POST['button_text_color']).'"';
+					$shortcode .= ' button_bg_color="'.esc_attr($_POST['button_bg_color']).'"';
+					$shortcode .= ' button_font_size="'.esc_attr($_POST['button_font_size']).'"';
+					$shortcode .= ' button_padding="'.esc_attr($_POST['button_padding']).'"';
+					$shortcode .= ' button_radius="'.esc_attr($_POST['button_radius']).'"';
 					
 					$shortcode .= ']';
 				}

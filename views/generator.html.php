@@ -342,21 +342,18 @@
 		    		<div class="srevo-form">
 		    			<p><label><?php _e('Button text:', 'shortcode-revolution');?></label> <input type="text" name="button_text" value="<?php echo empty($_POST['button_text']) ? __('Demo Button', 'srevo')  : esc_attr($_POST['button_text']);?>"></p>
 		    			<p><label><?php _e('Button link / href:', 'shortcode-revolution');?></label> <input type="text" name="button_href" value="<?php echo empty($_POST['button_href']) ? '' : esc_url($_POST['button_href']);?>" size="30"></p>
-		    			<p><label><?php _e('Button target:', 'shortcode-revolution');?></label> <select name="button_target">
-			    			<option value="_self">_self</option>
-			    			<option value="_blank" <?php if(!empty($_POST['button_target']) and $_POST['button_target'] == '_blank') echo 'selected'?>">_blank</option>
-		    			</select></p>
+		    			
 		    			<p><label><?php _e('Style and classes:', 'shortcode-revolution');?></label> <select name="button_style">
 		    				<option value=""><?php _e('- Select a built-in style -');?></option>
-		    				<option value="button-primary" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'button-primary') echo 'selected';?>><?php _e('Default', 'srevo');?></option>
+		    				<option value="" <?php if(empty($_POST['button_style'])) echo 'selected';?>><?php _e('Default for your theme', 'srevo');?></option>
 		    				<option value="srevo-button-flat" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'srevo-button-flat') echo 'selected';?>><?php _e('Flat', 'srevo');?></option>
 		    				<option value="srevo-button-empty" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'srevo-button-empty') echo 'selected';?>><?php _e('Empty', 'srevo');?></option>
 		    				<option value="srevo-button-glass" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'srevo-button-glass') echo 'selected';?>><?php _e('Glass', 'srevo');?></option>
 		    				<option value="srevo-button-3d" <?php if(!empty($_POST['button_style']) and $_POST['button_style'] == 'srevo-button-3d') echo 'selected';?>><?php _e('3d', 'srevo');?></option>
-		    			</select>
-		    			<?php _e('Custom CSS classes:', 'srevo');?> <input type="text" name="button_classes" value="<?php echo empty($_POST['button_classes']) ? '': esc_attr($_POST['button_classes']);?>"></p>
+		    			</select></p>
+		    			<p><label><?php _e('Custom CSS classes:', 'srevo');?></label> <input type="text" name="button_classes" value="<?php echo empty($_POST['button_classes']) ? '': esc_attr($_POST['button_classes']);?>"></p>
 		    			<p><label><?php _e('Text color:', 'shortcode-revolution');?></label> <input type="text" name="button_text_color" value="<?php echo empty($_POST['button_text_color']) ? '' : esc_attr($_POST['button_text_color'])?>" class="srevo-color-field"></p>
-		    			<p><label><?php _e('Background color:', 'shortcode-revolution');?></label> <input type="text" name="button_bg_color" value="<?php echo empty($_POST['button_bg_color']) ? '' : esc_attr($_POST['button_bg_color'])?>" class="srevo-color-field"></p>
+		    			<p><label><?php _e('Background color:', 'shortcode-revolution');?></label> <input type="text" name="button_bg_color" value="<?php echo empty($_POST['button_bg_color']) ? 'white' : esc_attr($_POST['button_bg_color'])?>" class="srevo-color-field"></p>
 		    			<p><label><?php _e('Font size', 'shortcode-revolution');?></label> <input type="text" name="button_font_size" value="<?php echo empty($_POST['button_font_size']) ? '1em' : esc_attr($_POST['button_font_size']);?>" size="6"></p>
 		    			<p><label><?php _e('Padding', 'shortcode-revolution');?></label> <input type="text" name="button_padding" value="<?php echo empty($_POST['button_padding']) ? '5px' : esc_attr($_POST['button_padding']);?>" size="6"></p>
 		    			<p><label><?php _e('Button border radius (rounding)', 'shortcode-revolution');?></label> <input type="text" name="button_radius" value="<?php echo empty($_POST['button_radius']) ? '0px' : esc_attr($_POST['button_radius']);?>" size="6"></p>
@@ -364,9 +361,9 @@
 		    			<input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
 					</div>	    	
 					
-					<div>
+					<div style="margin-left: 25px;">
 							<h3><?php _e('Preview', 'srevo');?></h3>
-							<button id="srevoButtonPreview" onclick="alert('<?php _e('Demo, non functional', 'srevo');?>');return false;" formtarget="<?php if(!empty($_POST['button_target']) and $_POST['button_target'] == '_blank') echo 'selected'?>" class="srevo-button <?php if(!empty($_POST['button_style'])): echo esc_attr($_POST['button_style']); else: echo 'button'; endif;?> <?php echo empty($_POST['button_classes']) ? '' : esc_attr($_POST['button_classes']);?>" style='<?php if(!empty($_POST['button_text_color'])) echo 'color:'.esc_attr($_POST['button_text_color']).';';
+							<button id="srevoButtonPreview" onclick="alert('<?php _e('Demo, non functional', 'srevo');?>');return false;" class="srevo-button <?php if(!empty($_POST['button_style'])): echo esc_attr($_POST['button_style']); else: echo 'button'; endif;?> <?php echo empty($_POST['button_classes']) ? '' : esc_attr($_POST['button_classes']);?>" style='<?php if(!empty($_POST['button_text_color'])) echo 'color:'.esc_attr($_POST['button_text_color']).';';
 							if(!empty($_POST['button_bg_color'])) echo 'background-color:'.esc_attr($_POST['button_bg_color']).';';
 							if(!empty($_POST['button_font_size'])) echo 'font-size:'.esc_attr($_POST['button_font_size']).';';
 							if(!empty($_POST['button_padding'])) echo 'padding:'.esc_attr($_POST['button_padding']).';';
