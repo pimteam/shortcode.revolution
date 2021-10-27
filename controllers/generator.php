@@ -142,6 +142,30 @@ class ShortcodeRevolutionGenerator {
 				// front css is needed here too
 				ShortcodeRevolution :: front_scripts();
 			break;
+			
+			case 'tables':
+				if(!empty($_POST['generate'])) {
+					// upload file
+					if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
+					$uploadedfile = $_FILES['csv'];
+									
+					// must have a CSV extension
+					$error = false;
+					if($uploadedfile['type'] != 'text/csv') {
+						$error = __('Only CSV files are accepted', 'srevo');
+					}
+					
+					if(!$error and !mb_detect_encoding($content, 'UTF-8', true)) {
+						$error = __('The file should be in UTF-8 Unicode format', 'srevo');
+					}
+					
+					$upload_overrides = array( 'test_form' => false );
+					$movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+					if ( $movefile and empty($error)) {					    
+					    $shortcode = '[srevo-table data_source="'.$movefile['url'].'" delimiter="'.esc_attr($_POST['delim']).'" css_classes="'.esc_attr($_POST['table_css']).'"]';
+					} 
+				}
+			break;
 		} // end switch
 		
 		// enqueue jquery-ui

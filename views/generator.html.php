@@ -400,6 +400,28 @@
 			}	
 			</script> 
 			
-		<?php endif; // end if buttons ;?>
-    </div> <!-- end wrap -->
+		<?php endif; // end if buttons ;
+		if($tab == 'tables'):?>
+			<h2><?php _e('Shortcodes for tables from CSV', 'shortcode-revolution');?></h2>
+			<form method="post" enctype="multipart/form-data">
+					<?php if(!empty($error)):?>
+						<p class="error srevo-error"><?php echo $error;?></p>
+					<?php endif;?>
+	    		   <p><label><?php _e('Upload a CSV file:', 'srevo');?></label> <input type="file" name="csv" required></p>
+	    		   <p><label><?php _e('Field delimiter:', 'srevo');?></label> <select name="delim">
+	    		   	<option value="comma"><?php _e('Comma', 'srevo');?></option>
+	    		   	<option value="semicolon" <?php if(!empty($_POST['delim']) and $_POST['delim'] == 'semicolon') echo 'selected';?>><?php _e('Semicolon', 'srevo');?></option>
+	    		   	<option value="tab" <?php if(!empty($_POST['delim']) and $_POST['delim'] == 'tab') echo 'selected';?>><?php _e('Semicolon', 'tab');?></option>
+	    		   </select></p>
+	    		   <p><label><?php _e('Table CSS classes:', 'srevo');?></label> <input type="text" size="30" name="table_css" value="<?php echo empty($_POST['table_css']) ? '' : esc_attr($_POST['table_css']);?>"></p>
+	    			
+	    			<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
+	    		
+	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>			    
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+		    	<?php endif;?>
+			</form>   	
+			
+		<?php endif; // end if tables ;?>
+    </div> <!-- end srevo-generator wrap  -->
 </div>
