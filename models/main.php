@@ -42,6 +42,9 @@ class ShortcodeRevolution {
 		// buttons
 		add_shortcode('srevo-button', ['ShortcodeRevolutionButtons', 'button']);
 		
+		// tables
+		add_shortcode('srevo-table', ['ShortcodeRevolutionTables', 'table']);
+		
 	} // end init
 	
 	public static function admin_scripts() {

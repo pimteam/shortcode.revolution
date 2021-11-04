@@ -17,8 +17,8 @@ class ShortcodeRevolutionTables {
 		}
 		
 		$html = '';
-		
-		if (($handle = fopen($_FILES['csv']['tmp_name'], "r")) !== FALSE) {
+		$row = 0;
+		if (($handle = fopen($atts['data_source'], "r")) !== FALSE) {
 			$html = '<table class="'.esc_attr($atts['css_classes']).'">'; 
 			 	
 		    while (($data = fgetcsv($handle, 10000, $delim)) !== FALSE) {	    	  
@@ -30,7 +30,7 @@ class ShortcodeRevolutionTables {
               	 <tr>';
 					 
 					 foreach($data as $d) {
-					 	// NYI
+					 	$html .= '<th>'.esc_attr($d).'</th>';
 					 }		              	 
               	  
               	 $html .= '</tr>
@@ -38,7 +38,17 @@ class ShortcodeRevolutionTables {
               	 <tbody>';
               	 continue;
               }		       
-		       
+		        
+		        // table cells after the first row
+		        if(empty($class)) $class = 'alternate';
+		        else $class = '';
+		        $html .= '<tr class="'.$class.'">';
+
+				  foreach($data as $d) {
+				  	  $html .= '<td>'.esc_attr($d).'</td>';
+				  }		        
+		        
+		        $html .= '</tr>';
 		    } // end while
 			  
 			 $html .= '</tbody></table>';
