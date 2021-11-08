@@ -154,7 +154,7 @@ class ShortcodeRevolutionGenerator {
 					if($uploadedfile['type'] != 'text/csv') {
 						$error = __('Only CSV files are accepted', 'srevo');
 					}
-					
+					$content = file_get_contents($_FILES['csv']['tmp_name']);
 					if(!$error and !mb_detect_encoding($content, 'UTF-8', true)) {
 						$error = __('The file should be in UTF-8 Unicode format', 'srevo');
 					}
@@ -164,6 +164,16 @@ class ShortcodeRevolutionGenerator {
 					if ( $movefile and empty($error)) {					    
 					    $shortcode = '[srevo-table data_source="'.$movefile['url'].'" delimiter="'.esc_attr($_POST['delim']).'" css_classes="'.esc_attr($_POST['table_css']).'"]';
 					} 
+				}
+			break;
+			
+			case 'flashcards':
+				if(!empty($_POST['generate'])) {
+					$shortcode = '[srevo-flashcard]';
+			
+					$shortcode .= wp_kses_post($_POST['flashcard_front']).'<!-- split -->'.wp_kses_post($_POST['flashcard_back']);				
+					
+					$shortcode .= '[/srevo-flashcard]';
 				}
 			break;
 		} // end switch

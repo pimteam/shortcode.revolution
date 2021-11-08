@@ -422,6 +422,28 @@
 		    	<?php endif;?>
 			</form>   	
 			
+		<?php endif; // end if tables ;
+		if($tab == 'flashcards'):?>
+			<h2><?php _e('Shortcodes for Flashcards', 'shortcode-revolution');?></h2>
+			<form method="post" enctype="multipart/form-data">
+					<?php if(!empty($error)):?>
+						<p class="error srevo-error"><?php echo $error;?></p>
+					<?php endif;?>
+	    		  	
+	    		  	<h2><?php _e('Flashcard Front side', 'shortcode-revolution');?></h2>
+				   <p><?php wp_editor(empty($_POST['flashcard_front']) ? '' : stripslashes($_POST['flashcard_front']), "flashcardFront", ['textarea_name'=>'flashcard_front'])?></p> 	
+				   	
+				   <h2><?php _e('Flashcard Back side', 'shortcode-revolution');?></h2>
+				   <p><?php wp_editor(empty($_POST['flashcard_back']) ? '' : stripslashes($_POST['flashcard_back']), "flashcardBack", ['textarea_name'=>'flashcard_back'])?></p> 		
+	    			
+	    			<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
+	    		
+	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>
+	    			<p class="srevo-help"><?php _e('This shortcode should be placed only in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>			    
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+		    	<?php endif;?>
+			</form>   	
+			
 		<?php endif; // end if tables ;?>
     </div> <!-- end srevo-generator wrap  -->
 </div>
