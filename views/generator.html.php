@@ -435,6 +435,16 @@
 				   	
 				   <h2><?php _e('Flashcard Back side', 'shortcode-revolution');?></h2>
 				   <p><?php wp_editor(empty($_POST['flashcard_back']) ? '' : stripslashes($_POST['flashcard_back']), "flashcardBack", ['textarea_name'=>'flashcard_back'])?></p> 		
+				   
+				   <p><label><?php _e('Width:', 'shortcode-revolution');?></label> <input type="text" name="card_width" value="<?php echo empty($_POST['card_width']) ? '300px' : esc_attr($_POST['card_width']);?>"></p>
+				   
+				   <p><label><?php _e('Height:', 'shortcode-revolution');?></label> <input type="text" name="card_height" value="<?php echo empty($_POST['card_height']) ? '300px' : esc_attr($_POST['card_width']);?>"></p>
+				   
+				   <p><label><?php _e('Border radius:', 'shortcode-revolution');?></label> <input type="text" name="card_radius" value="<?php echo empty($_POST['card_radius']) ? '0%' : esc_attr($_POST['card_radius']);?>"></p>
+				   
+		    		<p><label><?php _e('Front card color:', 'shortcode-revolution');?></label> <input type="text" name="card_front_color" value="<?php echo empty($_POST['card_front_color']) ? 'white' : esc_attr($_POST['card_front_color'])?>" class="srevo-color-field"></p>
+		    		
+		    		<p><label><?php _e('Back card color:', 'shortcode-revolution');?></label> <input type="text" name="card_back_color" value="<?php echo empty($_POST['card_back_color']) ? 'white' : esc_attr($_POST['card_back_color'])?>" class="srevo-color-field"></p>
 	    			
 	    			<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
 	    		
@@ -444,6 +454,11 @@
 		    	<?php endif;?>
 			</form>   	
 			
+			<script type="text/javascript" >			
+			document.addEventListener("DOMContentLoaded", function() {
+				jQuery('.srevo-color-field').wpColorPicker();
+			});	
+			</script>
 		<?php endif; // end if tables ;?>
     </div> <!-- end srevo-generator wrap  -->
 </div>
