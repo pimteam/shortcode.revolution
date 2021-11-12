@@ -173,10 +173,10 @@ class ShortcodeRevolutionGenerator {
 					
 					$shortcode .= ' width="'.sanitize_text_field($_POST['card_width']).'"';
 					$shortcode .= ' height="'.sanitize_text_field($_POST['card_height']).'"';
-					$shortcode .= ' border_radius="'.sanitize_text_field($_POST['card_radius']).'"';
-					$shortcode .= ' border_radius="'.sanitize_text_field($_POST['card_radius']).'"';
+					$shortcode .= ' border_radius="'.sanitize_text_field($_POST['card_radius']).'"';					
 					$shortcode .= ' front_color="'.sanitize_text_field($_POST['card_front_color']).'"';
 					$shortcode .= ' back_color="'.sanitize_text_field($_POST['card_back_color']).'"';
+					$shortcode .= ' padding="'.sanitize_text_field($_POST['padding']).'"';
 				
 					$shortcode .= ']';
 					

@@ -445,6 +445,8 @@
 		    		<p><label><?php _e('Front card color:', 'shortcode-revolution');?></label> <input type="text" name="card_front_color" value="<?php echo empty($_POST['card_front_color']) ? 'white' : esc_attr($_POST['card_front_color'])?>" class="srevo-color-field"></p>
 		    		
 		    		<p><label><?php _e('Back card color:', 'shortcode-revolution');?></label> <input type="text" name="card_back_color" value="<?php echo empty($_POST['card_back_color']) ? 'white' : esc_attr($_POST['card_back_color'])?>" class="srevo-color-field"></p>
+		    		
+		    			<p><label><?php _e('Padding:', 'shortcode-revolution');?></label> <input type="text" name="padding" value="<?php echo empty($_POST['padding']) ? '10px' : esc_attr($_POST['padding'])?>"></p>
 	    			
 	    			<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
 	    		

@@ -45,6 +45,9 @@ class ShortcodeRevolution {
 		// tables
 		add_shortcode('srevo-table', ['ShortcodeRevolutionTables', 'table']);
 		
+		// flashcards
+		add_shortcode('srevo-flashcard', ['ShortcodeRevolutionFlashcards', 'card']);
+		
 	} // end init
 	
 	public static function admin_scripts() {
