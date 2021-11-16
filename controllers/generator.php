@@ -195,7 +195,7 @@ class ShortcodeRevolutionGenerator {
 				if(!empty($_POST['generate'])) {
 					$shortcode = '[srevo-profile user_id="'.sanitize_text_field($_POST['user_id']).'"';
 					
-					if($_POST['user_id'] == 'specific') $shortcode .= ' selected_user_id="'.intval($_POST['specific_user_id']).'"';				
+					if($_POST['user_id'] == 'specific') $shortcode .= ' specific_user_id="'.intval($_POST['specific_user_id']).'"';				
 					if($_POST['user_id'] == 'get') $shortcode .= ' var_name="'.sanitize_text_field($_POST['var_name']).'"';
 					
 					$shortcode .= ' field="'.sanitize_text_field($_POST['field']).'"';

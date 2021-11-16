@@ -500,7 +500,7 @@
 	    		  		</optgroup>
 	    		  		<optgroup label="<?php _e('Meta data fields', 'srevo');?>">
 	    		  			<?php foreach($meta_keys as $meta_key):?>
-	    		  				<option value="<?php echo $meta_key->meta_key?>" <?php if(!empty($_POST['field']) and $_POST['field'] == $meta_key->meta_key) echo 'selected';?>><?php echo $meta_key->meta_key;?></option>
+	    		  				<option value="meta_<?php echo $meta_key->meta_key?>" <?php if(!empty($_POST['field']) and $_POST['field'] == 'meta_'.$meta_key->meta_key) echo 'selected';?>><?php echo $meta_key->meta_key;?></option>
 	    		  			<?php endforeach;?>
 	    		  		</optgroup>	    		  		
 	    		  	</select></p>
