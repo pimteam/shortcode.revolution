@@ -461,6 +461,69 @@
 				jQuery('.srevo-color-field').wpColorPicker();
 			});	
 			</script>
-		<?php endif; // end if tables ;?>
+		<?php endif; // end if flashcards ;
+		if($tab == 'data'):?>
+			<h2><?php _e('Data Pulling Shortcodes', 'shortcode-revolution');?></h2>
+			<form method="post" enctype="multipart/form-data">
+					<?php if(!empty($error)):?>
+						<p class="error srevo-error"><?php echo $error;?></p>
+					<?php endif;?>
+	    		  	
+	    		  	<h3><?php _e('User Data', 'srevo');?></h3>
+	    		  	
+	    		  	<p><?php _e('These shortcodes allow you to publish data and meta data regarding an user. They are good for using on profile pages, author pages, and so on','srevo');?></p>
+	    		  	
+	    		  	<p><?php _e('Pull data for:', 'srevo');?> <select name="user_id" onchange="srevoDataChangeUserID(this.value);">
+	    		  		<option value="logged_in" <?php if(!empty($_POST['user_id']) and $_POST['user_id'] == 'logged_in') echo 'selected';?>><?php _e('The user that is logged in', 'srevo');?></option>
+	    		  		<option value="specific" <?php if(!empty($_POST['user_id']) and $_POST['user_id'] == 'specific') echo 'selected';?>><?php _e('Specific user ID', 'srevo');?></option>
+	    		  		<option value="get" <?php if(!empty($_POST['user_id']) and $_POST['user_id'] == 'get') echo 'selected';?>><?php _e('User ID passed as URL parameter', 'srevo');?></option>
+	    		  	</select>
+						<span id="dataShortcodeSpecific" style='display:<?php echo (!empty($_POST['user_id']) and $_POST['user_id'] == 'specific') ? 'inline' : 'none';?>'>
+							<?php _e('ID:', 'srevo')?> <input type="text" size="6" name="specific_user_id" value="<?php echo empty($_POST['specific_user_id']) ? 0 : intval($_POST['specific_user_id'])?>">						
+						</span>	   
+						
+						<span id="dataShortcodeGet" style='display:<?php echo (!empty($_POST['user_id']) and $_POST['user_id'] == 'get') ? 'inline' : 'none';?>'>
+							<?php _e('Variable name:', 'srevo')?> <input type="text" size="6" name="var_name" value="<?php echo empty($_POST['var_name']) ? '' : esc_attr($_POST['var_name'])?>">						
+						</span> 		  	
+	    		  	</p>
+	    		  	
+	    		  	<p><?php _e('Profile field or meta value:', 'srevo');?> <select name="field">
+	    		  		<optgroup label="<?php _e('User profile fields', 'srevo');?>">
+		    		  		<option value="ID" <?php if(!empty($_POST['field']) and $_POST['field'] == 'ID') echo 'selected'?>><?php _e('ID', 'srevo');?></option>
+		    		  		<option value="user_login" <?php if(!empty($_POST['field']) and $_POST['field'] == 'user_login') echo 'selected'?>><?php _e('Username (login)', 'srevo');?></option>
+		    		  		<option value="user_email" <?php if(!empty($_POST['field']) and $_POST['field'] == 'user_email') echo 'selected'?>><?php _e('Email address', 'srevo');?></option>
+		    		  		<option value="first_name" <?php if(!empty($_POST['field']) and $_POST['field'] == 'first_name') echo 'selected'?>><?php _e('First name', 'srevo');?></option>
+		    		  		<option value="last_name" <?php if(!empty($_POST['field']) and $_POST['field'] == 'last_name') echo 'selected'?>><?php _e('Last name', 'srevo');?></option>
+		    		  		<option value="display_name" <?php if(!empty($_POST['field']) and $_POST['field'] == 'display_name') echo 'selected'?>><?php _e('Display name', 'srevo');?></option>
+		    		  		<option value="user_roles" <?php if(!empty($_POST['field']) and $_POST['field'] == 'user_roles') echo 'selected'?>><?php _e('User roles', 'srevo');?></option>
+		    		  		<option value="user_registered" <?php if(!empty($_POST['field']) and $_POST['field'] == 'user_registered') echo 'selected'?>><?php _e('Registration date/time', 'srevo');?></option>
+	    		  		</optgroup>
+	    		  		<optgroup label="<?php _e('Meta data fields', 'srevo');?>">
+	    		  			<?php foreach($meta_keys as $meta_key):?>
+	    		  				<option value="<?php echo $meta_key->meta_key?>" <?php if(!empty($_POST['field']) and $_POST['field'] == $meta_key->meta_key) echo 'selected';?>><?php echo $meta_key->meta_key;?></option>
+	    		  			<?php endforeach;?>
+	    		  		</optgroup>	    		  		
+	    		  	</select></p>
+	    		  	
+	    		  	<p>NYI: make also "All profile fields" and "All meta data" with variables...</p>
+	    			
+	    			<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
+	    		
+	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>
+	    			<p class="srevo-help"><?php _e('This shortcode should be placed only in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>			    
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+		    	<?php endif;?>
+			</form>   	
+			
+			<script type="text/javascript" >			
+			function srevoDataChangeUserID(val) {
+				jQuery('#dataShortcodeSpecific').hide();
+				jQuery('#dataShortcodeGet').hide();
+				
+				if(val == 'specific') jQuery('#dataShortcodeSpecific').show();
+				if(val == 'get') jQuery('#dataShortcodeGet').show();
+			}
+			</script>
+		<?php endif; // end if data ;?>
     </div> <!-- end srevo-generator wrap  -->
 </div>

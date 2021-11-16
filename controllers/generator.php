@@ -2,6 +2,7 @@
 // the shortcode generator 
 class ShortcodeRevolutionGenerator {
 	public static function main() {
+		global $wpdb;
 		$tab = empty($_GET['tab'])	? 'posts' : esc_attr($_GET['tab']);
 		
 		switch($tab) {
@@ -188,6 +189,22 @@ class ShortcodeRevolutionGenerator {
 				
 				wp_enqueue_style( 'wp-color-picker' );
 				wp_enqueue_script( 'wp-color-picker' );		
+			break;
+			
+			case 'data':
+				if(!empty($_POST['generate'])) {
+					$shortcode = '[srevo-profile user_id="'.sanitize_text_field($_POST['user_id']).'"';
+					
+					if($_POST['user_id'] == 'specific') $shortcode .= ' selected_user_id="'.intval($_POST['specific_user_id']).'"';				
+					if($_POST['user_id'] == 'get') $shortcode .= ' var_name="'.sanitize_text_field($_POST['var_name']).'"';
+					
+					$shortcode .= ' field="'.sanitize_text_field($_POST['field']).'"';
+					
+					$shortcode .= ']';
+				}
+			
+				// get all keys for user meta
+				$meta_keys = $wpdb->get_results("SELECT DISTINCT(meta_key) as meta_key FROM {$wpdb->usermeta} ORDER BY meta_key");
 			break;
 		} // end switch
 		
