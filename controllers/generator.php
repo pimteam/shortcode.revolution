@@ -192,6 +192,10 @@ class ShortcodeRevolutionGenerator {
 			break;
 			
 			case 'data':
+				// get all keys for user meta
+				$meta_keys = $wpdb->get_results("SELECT DISTINCT(meta_key) as meta_key FROM {$wpdb->usermeta} 
+					WHERE meta_key NOT LIKE 'wp_%' ORDER BY meta_key");
+				
 				if(!empty($_POST['generate'])) {
 					$shortcode = '[srevo-profile user_id="'.sanitize_text_field($_POST['user_id']).'"';
 					
@@ -201,10 +205,22 @@ class ShortcodeRevolutionGenerator {
 					$shortcode .= ' field="'.sanitize_text_field($_POST['field']).'"';
 					
 					$shortcode .= ']';
-				}
-			
-				// get all keys for user meta
-				$meta_keys = $wpdb->get_results("SELECT DISTINCT(meta_key) as meta_key FROM {$wpdb->usermeta} ORDER BY meta_key");
+					
+					// all fields? Then construct a string inside the shortcode instead
+					if($_POST['field'] == '__ALL__') {
+						$content = "ID: {{ID}}\n".__('Username (login):', 'srevo')." {{user_login}}\n".__('Email address:', 'srevo')." {{user_email}}\n";
+						$content .= __('First name:', 'srevo')." {{first_name}}\n".__('Last name:', 'srevo')." {{last_name}}\n";
+						$content .= __('Display name:', 'srevo')." {{display_name}}\n".__('User roles:', 'srevo')." {{user_roles}}\n";
+						$content .= __('Registration date / time:', 'srevo')." {{user_registered}}\n";		
+						
+						// now add meta
+						foreach($meta_keys as $meta_key) $content .= $meta_key->meta_key.": {{meta_".$meta_key->meta_key."}}\n";
+						
+						$shortcode .= $content;				
+						
+						$shortcode .= '[/srevo-profile]';
+					} // end all fields
+				} 			
 			break;
 		} // end switch
 		

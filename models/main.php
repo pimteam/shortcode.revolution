@@ -48,6 +48,9 @@ class ShortcodeRevolution {
 		// flashcards
 		add_shortcode('srevo-flashcard', ['ShortcodeRevolutionFlashcards', 'card']);
 		
+		// data shortcodes
+		add_shortcode('srevo-profile', ['ShortcodeRevolutionData', 'user']);
+		
 	} // end init
 	
 	public static function admin_scripts() {

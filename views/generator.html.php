@@ -488,6 +488,8 @@
 	    		  	</p>
 	    		  	
 	    		  	<p><?php _e('Profile field or meta value:', 'srevo');?> <select name="field">
+	    		  		<optgroup label="<?php _e('All fields', 'srevo');?>">
+	    		  		<option value="__ALL__" <?php if(!empty($_POST['field']) and $_POST['field'] == '__ALL__') echo 'selected'?>><?php _e('All fields', 'srevo');?></option>
 	    		  		<optgroup label="<?php _e('User profile fields', 'srevo');?>">
 		    		  		<option value="ID" <?php if(!empty($_POST['field']) and $_POST['field'] == 'ID') echo 'selected'?>><?php _e('ID', 'srevo');?></option>
 		    		  		<option value="user_login" <?php if(!empty($_POST['field']) and $_POST['field'] == 'user_login') echo 'selected'?>><?php _e('Username (login)', 'srevo');?></option>
@@ -505,8 +507,6 @@
 	    		  		</optgroup>	    		  		
 	    		  	</select></p>
 	    		  	
-	    		  	<p>NYI: make also "All profile fields" and "All meta data" with variables...</p>
-	    			
 	    			<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'srevo');?>" class="button-primary"></p>
 	    		
 	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>
