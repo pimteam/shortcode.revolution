@@ -524,6 +524,29 @@
 				if(val == 'get') jQuery('#dataShortcodeGet').show();
 			}
 			</script>
-		<?php endif; // end if data ;?>
+		<?php endif; // end if data ;
+		if($tab == 'custom'):?>
+			<h2><?php _e('Custom Shortcodes', 'shortcode-revolution');?></h2>
+			
+			<p><?php _e('The custom shortcodes are just stored pieces of contents, HTML code, etc, which you can reuse across your site to save time', 'srevo');?></p>
+			<p><?php printf(__('Each of these shortcodes allows enclosing contents. In that case using the variable %s in the shortcode box allows you to wrap the content inside a text or HTML code.', 'srevo'), '{{enclosed}}');?></p>
+			
+			<p><a href="admin.php?page=shortcode_revolution_custom&do=add"><?php _e('Create a new custom shortcode', 'srevo');?></a></p>
+			
+			<?php if(count($shortcodes)):?>
+				<table class="widefat">
+					<thead>
+						<tr><th><?php _e("Shortcode name", 'srevo');?></th><th><?php _e('Edit', 'srevo');?></th></tr>
+					</thead>
+					<?php foreach($shortcodes as $shortcode):
+						$class = $class ?? 'alternate';?>
+						<tr class="<?php echo $class;?>">
+							<td><?php echo stripslashes($shortcode->name);?></td>
+							<td><a href="admin.php?page=shortcode_revolution_custom&do=edit&id=<?php echo $shortcode->id;?>"><?php _e('Edit', 'srevo');?></a></td>
+						</tr>			
+					<?php endforeach;?>
+				</table>
+			<?php endif;?>
+		<?php endif;?>	
     </div> <!-- end srevo-generator wrap  -->
 </div>

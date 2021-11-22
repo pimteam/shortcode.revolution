@@ -222,6 +222,12 @@ class ShortcodeRevolutionGenerator {
 					} // end all fields
 				} 			
 			break;
+			
+			case 'custom':
+				// custom shortocdes. Here instead of generating, just select any existing ones
+				$shortcodes = $wpdb->get_results("SELECT * FROM ".SREVO_SHORTCODES." ORDER BY name");
+				
+			break;
 		} // end switch
 		
 		// enqueue jquery-ui

@@ -4,9 +4,21 @@ class ShortcodeRevolution {
 		global $wpdb;
 		$wpdb -> show_errors();
    	$collation = $wpdb->get_charset_collate();
+   	$collation = $wpdb->get_charset_collate();
    	if(!$update) self::init();
    	
    	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+   	
+   	// saved custom shortcodes
+   	$sql = "CREATE TABLE " . SREVO_SHORTCODES . " (
+			  id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+			  name varchar(255) NOT NULL DEFAULT '',
+			  shortcode TEXT,
+			  PRIMARY KEY  (id)			  
+			) $collation";
+		dbDelta( $sql );	  
+   	
+   	update_option('srevo_version', "0.1");
 	} // end install
 	
 	public static function init() {
@@ -14,9 +26,10 @@ class ShortcodeRevolution {
 		load_plugin_textdomain( 'shortcode-revolution', false, SREVO_RELATIVE_PATH."/languages/" );
 				
 		// define table names 
+		define('SREVO_SHORTCODES', $wpdb->prefix.'shortcodes');
 	
 		$version = get_option('srevo_version');
-		// if(version_compare($version, '0.1') == -1) self::install(true);
+		if(version_compare($version, '0.1') == -1) self::install(true);
 	
 		// actions 
 		
@@ -74,6 +87,8 @@ class ShortcodeRevolution {
    		'shortcode_revolution', array('ShortcodeRevolutionGenerator', "main"));
    	add_submenu_page('shortcode_revolution', __('Settings', 'shortcode-revolution'), __('Settings', 'shortcode-revolution'), $srevo_caps , 
    		'shortcode_revolution_settings', array('ShortcodeRevolution', "settings"));
+   	add_submenu_page('shortcode_revolution', __('Custom Shortcodes', 'shortcode-revolution'), __('Custom Shortcodes', 'shortcode-revolution'), $srevo_caps , 
+   		'shortcode_revolution_custom', array('ShortcodeRevolutionCustom', "manage"));	
    	
 	} // end menu
 	
