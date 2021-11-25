@@ -11,7 +11,7 @@ class ShortcodeRevolutionCustom {
 		}
 		
 		if(!empty($_POST['save']) and check_admin_referer('srevo_custom')) {
-			$name = preg_replace("/\W/", '', $_POST['name']);
+			$name = preg_replace("/\W/", '', strtolower($_POST['name']));
 			$shortcode = wp_kses_post($_POST['shortcode']);
 			if(empty($_GET['id'])) {
 				// add
@@ -29,9 +29,21 @@ class ShortcodeRevolutionCustom {
 		}
 		
 		if(!empty($_GET['id'])) {
-			$shortcode = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".SREVO_SHORTCODES." WHERE id=%d", itnval($_GET['id'])));
+			$shortcode = $wpdb->get_row($wpdb->prepare("SELECT * FROM ".SREVO_SHORTCODES." WHERE id=%d", intval($_GET['id'])));
 		}
 		
 		include(SREVO_PATH."/views/custom-shortcode.html.php");
 	} // end manage
+	
+	// make the actual shortcode work
+	public static function shortcode($atts, $contents = '') {
+		global $wpdb;
+		
+		// select shortcode
+		$shortcode = $wpdb->get_var($wpdb->prepare("SELECT shortcode FROM ".SREVO_SHORTCODES." WHERE id=%d", intval($atts['id'])));
+		
+		if(strstr($shortcode, '{{enclosed}}')) $shortcode = str_replace('{{enclosed}}', $contents, $shortcode);
+		
+		return $shortcode;
+	} // end shortcode
 }

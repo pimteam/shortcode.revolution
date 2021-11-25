@@ -64,6 +64,9 @@ class ShortcodeRevolution {
 		// data shortcodes
 		add_shortcode('srevo-profile', ['ShortcodeRevolutionData', 'user']);
 		
+		// custom shortcodes
+		add_shortcode('srevo-shortcode', ['ShortcodeRevolutionCustom', 'shortcode']);
+		
 	} // end init
 	
 	public static function admin_scripts() {
@@ -87,7 +90,7 @@ class ShortcodeRevolution {
    		'shortcode_revolution', array('ShortcodeRevolutionGenerator', "main"));
    	add_submenu_page('shortcode_revolution', __('Settings', 'shortcode-revolution'), __('Settings', 'shortcode-revolution'), $srevo_caps , 
    		'shortcode_revolution_settings', array('ShortcodeRevolution', "settings"));
-   	add_submenu_page('shortcode_revolution', __('Custom Shortcodes', 'shortcode-revolution'), __('Custom Shortcodes', 'shortcode-revolution'), $srevo_caps , 
+   	add_submenu_page(null, __('Custom Shortcodes', 'shortcode-revolution'), __('Custom Shortcodes', 'shortcode-revolution'), $srevo_caps , 
    		'shortcode_revolution_custom', array('ShortcodeRevolutionCustom', "manage"));	
    	
 	} // end menu

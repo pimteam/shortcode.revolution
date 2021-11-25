@@ -536,12 +536,14 @@
 			<?php if(count($shortcodes)):?>
 				<table class="widefat">
 					<thead>
-						<tr><th><?php _e("Shortcode name", 'srevo');?></th><th><?php _e('Edit', 'srevo');?></th></tr>
+						<tr><th><?php _e("Shortcode name", 'srevo');?></th><th><?php _e('Shortcode', 'srevo');?></th><th><?php _e('Edit', 'srevo');?></th></tr>
 					</thead>
 					<?php foreach($shortcodes as $shortcode):
-						$class = $class ?? 'alternate';?>
+						if(empty($class)) $class = 'alternate';
+						else $class = '';?>
 						<tr class="<?php echo $class;?>">
 							<td><?php echo stripslashes($shortcode->name);?></td>
+							<td><input type="text" size="40" onclick="this.select();" readonly value='[srevo-shortcode name="<?php echo $shortcode->name?>" id="<?php echo $shortcode->id?>"][/srevo-shortcode]'></td>
 							<td><a href="admin.php?page=shortcode_revolution_custom&do=edit&id=<?php echo $shortcode->id;?>"><?php _e('Edit', 'srevo');?></a></td>
 						</tr>			
 					<?php endforeach;?>
