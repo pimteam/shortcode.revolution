@@ -1,5 +1,8 @@
 <?php
-class ShortcodeRevolutionCustom {
+if(!defined('ABSPATH')) exit;
+
+// Custom shortcodes
+class ShortcodeRevolutionCustom extends ShortcodeRevolutionShortcode {
 	// manage shortcodes
 	public static function manage() {
 		global $wpdb;
@@ -38,6 +41,7 @@ class ShortcodeRevolutionCustom {
 	// make the actual shortcode work
 	public static function shortcode($atts, $contents = '') {
 		global $wpdb;
+		self :: load_css();
 		
 		// select shortcode
 		$shortcode = $wpdb->get_var($wpdb->prepare("SELECT shortcode FROM ".SREVO_SHORTCODES." WHERE id=%d", intval($atts['id'])));

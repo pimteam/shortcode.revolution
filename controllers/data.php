@@ -1,8 +1,11 @@
 <?php
-// Tabs
-class ShortcodeRevolutionData {	
+if(!defined('ABSPATH')) exit;
+// Data
+class ShortcodeRevolutionData extends ShortcodeRevolutionShortcode {	
 	// Data from user profile
 	public static function user($atts, $contents = '') {
+		self :: load_css();
+		
 		if(empty($atts['field'])) return __('No field specified', 'srevo');
 		 
 		// select the user

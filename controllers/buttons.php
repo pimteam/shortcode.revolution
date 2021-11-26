@@ -1,9 +1,13 @@
 <?php
-// Tabs
-class ShortcodeRevolutionButtons {
+if(!defined('ABSPATH')) exit;
+
+// Buttons
+class ShortcodeRevolutionButtons extends ShortcodeRevolutionShortcode {
 	
 	// The tabs container
 	public static function button($atts) {
+		self :: load_css();
+		
 		$button_text = sanitize_text_field($atts['button_text']);
 		$href = empty($atts['button_href']) ? '' : esc_url($atts['button_href']);
 		

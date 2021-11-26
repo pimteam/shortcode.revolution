@@ -1,10 +1,11 @@
 <?php
 if(!defined('ABSPATH')) exit;
 // Lighbox / Modal
-class ShortcodeRevolutionPopups {
+class ShortcodeRevolutionPopups extends ShortcodeRevolutionShortcode {
 	// using https://jquerymodal.com/
 	public static function modal($atts, $content) {
 		if(empty($content)) return;
+		self :: load_css();
 		
 		wp_register_script('jquery-modal', SREVO_URL.'lib/jquery-modal/jquery.modal.min.js', ['jquery'], '0.9.1', true);
 		wp_enqueue_script('jquery-modal');		

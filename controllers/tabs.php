@@ -1,10 +1,12 @@
 <?php
+if(!defined('ABSPATH')) exit;
 // Tabs
-class ShortcodeRevolutionTabs {
+class ShortcodeRevolutionTabs extends ShortcodeRevolutionShortcode {
 	
 	// The tabs container
-	public static function tabs($atts, $content = '') {
+	public static function tabs($atts, $content = '')  {
 		if(empty($content)) return '';
+		self :: load_css();
 		
 		// parse the tab shortcodes. Instead of displaying directly, we'll break them into an array
 		$content = do_shortcode($content);

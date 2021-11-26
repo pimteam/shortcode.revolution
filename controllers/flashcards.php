@@ -1,8 +1,12 @@
 <?php
-// Tabs
-class ShortcodeRevolutionFlashcards {	
+if(!defined('ABSPATH')) exit;
+
+// Flashcards
+class ShortcodeRevolutionFlashcards extends ShortcodeRevolutionShortcode {	
 	// Generates a flashcard
 	public static function card($atts, $contents = '') {
+		self :: load_css();
+		
 		// the two sides of the flascard will be separated by a <!--split--> tag in the contents of the shortcode
 		wp_enqueue_script(
 			'jquery.flip',

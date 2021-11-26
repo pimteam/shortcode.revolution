@@ -1,9 +1,13 @@
 <?php
+if(!defined('ABSPATH')) exit;
+
 // Grids and columns
-class ShortcodeRevolutionGrid {
+class ShortcodeRevolutionGrid extends ShortcodeRevolutionShortcode {
 	// Content floating in columns
 	// As explained at https://www.w3schools.com/css/css3_multiple_columns.asp
 	public static function columns($atts, $content = '') {
+		self :: load_css(); 
+		
 		$column_count = empty($atts['column_count']) ? 3 : intval($atts['column_count']);
 		$column_gap = empty($atts['column_gap']) ? '10px' : sanitize_text_field($atts['column_gap']);
 		$column_rule = empty($atts['column_rule']) ? '' : sanitize_text_field($atts['column_rule']);
@@ -25,6 +29,8 @@ class ShortcodeRevolutionGrid {
 	
 	// grid shortcode
 	public static function grid($atts, $content = '') {
+		self :: load_css(); 
+		
 		$grid_columns = empty($atts['column_count']) ? 3 : intval($atts['column_count']);
 		$grid_padding = empty($atts['grid_padding']) ? '10px' : sanitize_text_field($atts['grid_padding']);
 		$item_padding = empty($atts['item_padding']) ? '10px' : sanitize_text_field($atts['item_padding']);

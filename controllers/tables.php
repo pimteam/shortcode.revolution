@@ -1,9 +1,12 @@
 <?php
-// Tabs
-class ShortcodeRevolutionTables {
+if(!defined('ABSPATH')) exit;
+
+// Tables
+class ShortcodeRevolutionTables extends ShortcodeRevolutionShortcode {
 	
 	// Creates a table from a CSV
-	public static function table($atts) {
+	public static function table($atts)  {
+		self :: load_css();
 		// check data source
 		$contents = wp_remote_get(esc_url_raw($atts['data_source']));
 		

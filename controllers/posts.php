@@ -6,11 +6,12 @@ if(!defined('ABSPATH')) exit;
 // - display related/suggested post(s) widget (options: fixed IDs, or random from the same category) [PRO] allow stats & tracking of views/clicks
 // - display as a carousel. Carousel won't be a separate function but one of the display modes of the other shortcodes: normal, short list, carousel
 // https://developer.wordpress.org/reference/classes/wp_query/
-class ShortcodeRevolutionPosts {
+class ShortcodeRevolutionPosts extends ShortcodeRevolutionShortcode {
 	// this is the most important function that takes params and runs a get_posts query
 	// it's called by the other posts shortcodes - for example related widget, carousel etc
 	public static function list($atts = null) {
 		global $post;
+		self :: load_css();
 		
 		$ids = empty($atts['ids']) ? '' : preg_replace('/^[0-9,]+$/', '', $atts['ids']);
 		$types = empty($atts['post_types']) ? '' : explode(',', sanitize_text_field(preg_replace('/\s/', '', $atts['post_types'])));
@@ -58,6 +59,7 @@ class ShortcodeRevolutionPosts {
 	// displays related post from same category and/or tags	
 	public static function related($atts = null) {
 		global $post;
+		self :: load_css();
 		$post_id = empty($atts['post_id']) ? $post->ID : intval($atts['post_id']);
 		
 		$post = get_post($post_id);
@@ -117,6 +119,7 @@ class ShortcodeRevolutionPosts {
 	// https://developer.wordpress.org/reference/classes/wp_comment_query/__construct/#parameters
 	public static function comments($atts = null) {
 		global $post;
+		self :: load_css();
 		
 		$query = [];		
 		$query['number'] = (empty($atts['num']) or !is_numeric($atts['num'])) ? 3 : intval($atts['num']);       

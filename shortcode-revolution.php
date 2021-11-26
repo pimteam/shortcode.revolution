@@ -4,7 +4,7 @@ Plugin Name: Shortcode Revolution
 Plugin URI: http://calendarscripts.info/shortcode-revolution/
 Description: Shortcode everything. The low code / no code tool for WordPress developers, designers, and power users.
 Author: Kiboko Labs
-Version: 0.3.3
+Version: 0.3.4
 Author URI: http://calendarscripts.info/
 License: GPLv2 or later
 Text domain: shortcode-revolution
@@ -17,6 +17,7 @@ define( 'SREVO_URL', plugin_dir_url( __FILE__ ));
 // require controllers and models
 require_once(SREVO_PATH.'/models/main.php');
 require_once(SREVO_PATH.'/helpers/htmlhelper.php');
+require_once(SREVO_PATH.'/controllers/shortcodes.php');
 require_once(SREVO_PATH.'/controllers/ajax.php');
 require_once(SREVO_PATH.'/controllers/posts.php');
 require_once(SREVO_PATH.'/controllers/popups.php');

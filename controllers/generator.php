@@ -1,4 +1,6 @@
 <?php
+if(!defined('ABSPATH')) exit;
+
 // the shortcode generator 
 class ShortcodeRevolutionGenerator {
 	public static function main() {

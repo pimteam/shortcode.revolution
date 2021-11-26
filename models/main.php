@@ -32,9 +32,10 @@ class ShortcodeRevolution {
 		if(version_compare($version, '0.1') == -1) self::install(true);
 	
 		// actions 
+		// handle dynamic CSS for shortcodes
+		add_action('template_redirect', [__CLASS__, 'dynamic_css_redirect']);
 		
-		// shortcodes
-		
+		// shortcodes		
 		// posts
 		add_shortcode('srevo-related-posts', ['ShortcodeRevolutionPosts', 'related']);
 		add_shortcode('srevo-posts', ['ShortcodeRevolutionPosts', 'list']);
@@ -88,7 +89,7 @@ class ShortcodeRevolution {
    		array('ShortcodeRevolutionGenerator', "main"));
    	add_submenu_page('shortcode_revolution', __('Get Shortcodes', 'shortcode-revolution'), __('Get Shortcodes', 'shortcode-revolution'), $srevo_caps , 
    		'shortcode_revolution', array('ShortcodeRevolutionGenerator', "main"));
-   	add_submenu_page('shortcode_revolution', __('Settings', 'shortcode-revolution'), __('Settings', 'shortcode-revolution'), $srevo_caps , 
+   	add_submenu_page('shortcode_revolution', __('Settings', 'shortcode-revolution'), __('Settings', 'shortcode-revolution'), 'manage_options' , 
    		'shortcode_revolution_settings', array('ShortcodeRevolution', "settings"));
    	add_submenu_page(null, __('Custom Shortcodes', 'shortcode-revolution'), __('Custom Shortcodes', 'shortcode-revolution'), $srevo_caps , 
    		'shortcode_revolution_custom', array('ShortcodeRevolutionCustom', "manage"));	
@@ -96,5 +97,38 @@ class ShortcodeRevolution {
 	} // end menu
 	
 	public static function settings() {
+		global $wp, $wp_roles;
+		$roles = $wp_roles->roles;		
+
+		if(!empty($_POST['save_settings']) and check_admin_referer('srevo_settings')) {
+			foreach($roles as $key => $r) {
+				if($key == 'administrator') continue;
+				
+				$role = get_role($key);		
+		
+				if(!empty($_POST['manage_roles']) and is_array($_POST['manage_roles']) and in_array($key, $_POST['manage_roles'])) {					
+	 				if(!$role->has_cap('srevo_manage')) $role->add_cap('srevo_manage');
+				}
+				else $role->remove_cap('srevo_manage');		
+			} // end foreach role 
+			
+			// custom CSS
+			update_option('srevo_custom_css', wp_kses_post($_POST['custom_css']));
+		}
+		
+		$roles = $wp_roles->roles;	
+		$custom_css = get_option('srevo_custom_css');
+		
+		include(SREVO_PATH . '/views/settings.html.php');
 	} // end settings
+	
+	// template_redirect function that loads the dynamic CSS 
+	// calls onpage_css
+	public static function dynamic_css_redirect() {
+		if(empty($_GET['srevo_dynamic_css'])) return true;
+		header("Content-type: text/css; charset: UTF-8");
+		$custom_css = get_option('srevo_custom_css');
+		echo stripslashes($custom_css);
+		exit;
+	} // end dynamic_css_redirect
 }
