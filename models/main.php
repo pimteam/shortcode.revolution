@@ -91,6 +91,8 @@ class ShortcodeRevolution {
    		'shortcode_revolution', array('ShortcodeRevolutionGenerator', "main"));
    	add_submenu_page('shortcode_revolution', __('Settings', 'shortcode-revolution'), __('Settings', 'shortcode-revolution'), 'manage_options' , 
    		'shortcode_revolution_settings', array('ShortcodeRevolution', "settings"));
+   	add_submenu_page('shortcode_revolution', __('Help', 'shortcode-revolution'), __('Help', 'shortcode-revolution'), 'manage_options' , 
+   		'shortcode_revolution_help', array('ShortcodeRevolution', "help"));	
    	add_submenu_page(null, __('Custom Shortcodes', 'shortcode-revolution'), __('Custom Shortcodes', 'shortcode-revolution'), $srevo_caps , 
    		'shortcode_revolution_custom', array('ShortcodeRevolutionCustom', "manage"));	
    	
@@ -121,6 +123,10 @@ class ShortcodeRevolution {
 		
 		include(SREVO_PATH . '/views/settings.html.php');
 	} // end settings
+	
+	public static function help() {
+		include(SREVO_PATH . '/views/help.html.php');
+	}
 	
 	// template_redirect function that loads the dynamic CSS 
 	// calls onpage_css
