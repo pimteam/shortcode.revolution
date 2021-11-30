@@ -7,10 +7,6 @@ class ShortcodeRevolutionTables extends ShortcodeRevolutionShortcode {
 	// Creates a table from a CSV
 	public static function table($atts)  {
 		self :: load_css();
-		// check data source
-		$contents = wp_remote_get(esc_url_raw($atts['data_source']));
-		
-		if(empty($contents)) return __('Invalid data source', 'shortcode-revolution');
 		
 		// now parse the CSV into a table
 		switch($atts['delimiter']) {
@@ -21,7 +17,7 @@ class ShortcodeRevolutionTables extends ShortcodeRevolutionShortcode {
 		
 		$html = '';
 		$row = 0;
-		if (($handle = fopen($atts['data_source'], "r")) !== FALSE) {
+		if (($handle = fopen(esc_url_raw($atts['data_source']), "r")) !== FALSE) {
 			$html = '<table class="'.esc_attr($atts['css_classes']).'">'; 
 			 	
 		    while (($data = fgetcsv($handle, 10000, $delim)) !== FALSE) {	    	  

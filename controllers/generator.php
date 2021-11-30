@@ -16,22 +16,22 @@ class ShortcodeRevolutionGenerator {
 			   		case 'posts':
 			   			$shortcode = '[srevo-posts';
 			   				if(!empty($_POST['post_ids'])) $shortcode .= ' ids="'.preg_replace('/^[0-9,]+$/', '', $_POST['post_ids']).'"';
-			   				if(!empty($_POST['post_types'])) $shortcode .= ' post_types="'.sanitize_text_field(preg_replace('/\s/', '', $_POST['post_types'])).'"';			   				
+			   				if(!empty($_POST['post_types'])) $shortcode .= ' post_types="'.esc_attr(preg_replace('/\s/', '', $_POST['post_types'])).'"';			   				
 			   				if(!empty($_POST['categories'])) $shortcode .= ' categories="'.preg_replace('/\s/', '', sanitize_text_field($_POST['categories'])).'"';
-			   				if(!empty($_POST['tags'])) $shortcode .= ' tags="'.sanitize_text_field(preg_replace('/\s/', '', $_POST['tags'])).'"';
+			   				if(!empty($_POST['tags'])) $shortcode .= ' tags="'.esc_attr(preg_replace('/\s/', '', $_POST['tags'])).'"';
 			   				if(!empty($_POST['post_num'])) $shortcode .= ' num="'.intval($_POST['post_num']).'"';
-			   				if(!empty($_POST['post_orderby'])) $shortcode .= ' orderby="'.sanitize_text_field($_POST['post_orderby']).'"';
-			   				if(!empty($_POST['post_order'])) $shortcode .= ' order="'.sanitize_text_field($_POST['post_order']).'"';
-			   				if(!empty($_POST['post_display_mode'])) $shortcode .= ' display_mode="'.sanitize_text_field($_POST['post_display_mode']).'"';
+			   				if(!empty($_POST['post_orderby'])) $shortcode .= ' orderby="'.esc_attr($_POST['post_orderby']).'"';
+			   				if(!empty($_POST['post_order'])) $shortcode .= ' order="'.esc_attr($_POST['post_order']).'"';
+			   				if(!empty($_POST['post_display_mode'])) $shortcode .= ' display_mode="'.esc_attr($_POST['post_display_mode']).'"';
 			   			$shortcode .= ']';
 			   		break;
 			   		
 			   		case 'related':
 			   			$shortcode = '[srevo-related-posts';
 			   				if(!empty($_POST['related_id'])) $shortcode .= ' post_id="'.intval($_POST['related_id']).'"';
-			   				if(!empty($_POST['related_criteria'])) $shortcode .= ' criteria="'.sanitize_text_field($_POST['related_criteria']).'"';
+			   				if(!empty($_POST['related_criteria'])) $shortcode .= ' criteria="'.esc_attr($_POST['related_criteria']).'"';
 								if(!empty($_POST['related_num'])) $shortcode .= ' num="'.intval($_POST['related_num']).'"';
-								if(!empty($_POST['related_display_mode'])) $shortcode .= ' display_mode="'.sanitize_text_field($_POST['related_display_mode']).'"';
+								if(!empty($_POST['related_display_mode'])) $shortcode .= ' display_mode="'.esc_attr($_POST['related_display_mode']).'"';
 			   			$shortcode .= ']';
 			   		break;
 			   		
@@ -43,10 +43,10 @@ class ShortcodeRevolutionGenerator {
 			   					 else $shortcode .= ' post_id="'.intval($_POST['comment_post_id']).'"';
 			   				}	   				
 			   				
-			   				if(!empty($_POST['comment_orderby'])) $shortcode .= ' orderby="'.sanitize_text_field($_POST['comment_orderby']).'"';
-			   				if(!empty($_POST['comment_order'])) $shortcode .= ' order="'.sanitize_text_field($_POST['comment_order']).'"';
+			   				if(!empty($_POST['comment_orderby'])) $shortcode .= ' orderby="'.esc_attr($_POST['comment_orderby']).'"';
+			   				if(!empty($_POST['comment_order'])) $shortcode .= ' order="'.esc_attr($_POST['comment_order']).'"';
 			   				if(!empty($_POST['comment_num'])) $shortcode .= ' num="'.intval($_POST['comment_num']).'"';
-			   				if(!empty($_POST['comment_display_mode'])) $shortcode .= ' display_mode="'.sanitize_text_field($_POST['comment_display_mode']).'"';
+			   				if(!empty($_POST['comment_display_mode'])) $shortcode .= ' display_mode="'.esc_attr($_POST['comment_display_mode']).'"';
 			   			$shortcode .= ']';
 			   		break;
 			   	}
@@ -174,12 +174,12 @@ class ShortcodeRevolutionGenerator {
 				if(!empty($_POST['generate'])) {
 					$shortcode = '[srevo-flashcard';
 					
-					$shortcode .= ' width="'.sanitize_text_field($_POST['card_width']).'"';
-					$shortcode .= ' height="'.sanitize_text_field($_POST['card_height']).'"';
-					$shortcode .= ' border_radius="'.sanitize_text_field($_POST['card_radius']).'"';					
-					$shortcode .= ' front_color="'.sanitize_text_field($_POST['card_front_color']).'"';
-					$shortcode .= ' back_color="'.sanitize_text_field($_POST['card_back_color']).'"';
-					$shortcode .= ' padding="'.sanitize_text_field($_POST['padding']).'"';
+					$shortcode .= ' width="'.esc_attr($_POST['card_width']).'"';
+					$shortcode .= ' height="'.esc_attr($_POST['card_height']).'"';
+					$shortcode .= ' border_radius="'.esc_attr($_POST['card_radius']).'"';					
+					$shortcode .= ' front_color="'.esc_attr($_POST['card_front_color']).'"';
+					$shortcode .= ' back_color="'.esc_attr($_POST['card_back_color']).'"';
+					$shortcode .= ' padding="'.esc_attr($_POST['padding']).'"';
 				
 					$shortcode .= ']';
 					
@@ -199,12 +199,12 @@ class ShortcodeRevolutionGenerator {
 					WHERE meta_key NOT LIKE 'wp_%' ORDER BY meta_key");
 				
 				if(!empty($_POST['generate'])) {
-					$shortcode = '[srevo-profile user_id="'.sanitize_text_field($_POST['user_id']).'"';
+					$shortcode = '[srevo-profile user_id="'.esc_attr($_POST['user_id']).'"';
 					
 					if($_POST['user_id'] == 'specific') $shortcode .= ' specific_user_id="'.intval($_POST['specific_user_id']).'"';				
-					if($_POST['user_id'] == 'get') $shortcode .= ' var_name="'.sanitize_text_field($_POST['var_name']).'"';
+					if($_POST['user_id'] == 'get') $shortcode .= ' var_name="'.esc_attr($_POST['var_name']).'"';
 					
-					$shortcode .= ' field="'.sanitize_text_field($_POST['field']).'"';
+					$shortcode .= ' field="'.esc_attr($_POST['field']).'"';
 					
 					$shortcode .= ']';
 					

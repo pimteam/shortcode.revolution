@@ -1,5 +1,6 @@
 <?php
 if(!defined('ABSPATH')) exit;
+
 // Lighbox / Modal
 class ShortcodeRevolutionPopups extends ShortcodeRevolutionShortcode {
 	// using https://jquerymodal.com/

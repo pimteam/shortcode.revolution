@@ -9,9 +9,9 @@ class ShortcodeRevolutionGrid extends ShortcodeRevolutionShortcode {
 		self :: load_css(); 
 		
 		$column_count = empty($atts['column_count']) ? 3 : intval($atts['column_count']);
-		$column_gap = empty($atts['column_gap']) ? '10px' : sanitize_text_field($atts['column_gap']);
-		$column_rule = empty($atts['column_rule']) ? '' : sanitize_text_field($atts['column_rule']);
-		$column_width = empty($atts['column_width']) ? '' : sanitize_text_field($atts['column_idth']);
+		$column_gap = empty($atts['column_gap']) ? '10px' : esc_attr($atts['column_gap']);
+		$column_rule = empty($atts['column_rule']) ? '' : esc_attr($atts['column_rule']);
+		$column_width = empty($atts['column_width']) ? '' : esc_attr($atts['column_idth']);
 		
 		if(empty($content)) return '';
 		
@@ -32,9 +32,9 @@ class ShortcodeRevolutionGrid extends ShortcodeRevolutionShortcode {
 		self :: load_css(); 
 		
 		$grid_columns = empty($atts['column_count']) ? 3 : intval($atts['column_count']);
-		$grid_padding = empty($atts['grid_padding']) ? '10px' : sanitize_text_field($atts['grid_padding']);
-		$item_padding = empty($atts['item_padding']) ? '10px' : sanitize_text_field($atts['item_padding']);
-		$item_border = empty($atts['item_border']) ? '10px' : sanitize_text_field($atts['item_border']);
+		$grid_padding = empty($atts['grid_padding']) ? '10px' : esc_attr($atts['grid_padding']);
+		$item_padding = empty($atts['item_padding']) ? '10px' : esc_attr($atts['item_padding']);
+		$item_border = empty($atts['item_border']) ? '10px' : esc_attr($atts['item_border']);
 		
 		$unique_cnt = srevo_unique_cnt();
 		
