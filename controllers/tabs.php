@@ -51,7 +51,7 @@ class ShortcodeRevolutionTabs extends ShortcodeRevolutionShortcode {
 	
 	// one tab. Return title and content so the tabs() shortcode can parse properly
 	public static function tab($atts, $content) {
-		$title = empty($atts['title']) ? __('Tab', 'srevo') : sanitize_text_field($atts['title']);
+		$title = empty($atts['title']) ? __('Tab', 'shortcode-revolution') : sanitize_text_field($atts['title']);
 		return $title.'<!--srevo-split-parts-->'.$content.'<!--srevo-split-tabs-->';
 	}
 }

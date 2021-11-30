@@ -6,7 +6,7 @@ class ShortcodeRevolutionData extends ShortcodeRevolutionShortcode {
 	public static function user($atts, $contents = '') {
 		self :: load_css();
 		
-		if(empty($atts['field'])) return __('No field specified', 'srevo');
+		if(empty($atts['field'])) return __('No field specified', 'shortcode-revolution');
 		 
 		// select the user
 		switch($atts['user_id']) {
@@ -25,7 +25,7 @@ class ShortcodeRevolutionData extends ShortcodeRevolutionShortcode {
 		}
 		
 		$userdata = get_userdata($user_id);
-		if(empty($userdata->ID)) return __('User not found', 'srevo');
+		if(empty($userdata->ID)) return __('User not found', 'shortcode-revolution');
 			
 		// in case of all meta fields we have to collect the whole meta and then replace in the $content
 		if($atts['field'] == '__ALL__') {

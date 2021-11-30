@@ -1,0 +1,831 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: makepot.js 0.3.0\n"
+
+#: controllers/data.php:9
+msgid "No field specified"
+msgstr ""
+
+#: controllers/data.php:28
+msgid "User not found"
+msgstr ""
+
+#: controllers/generator.php:91
+msgid "Content %d"
+msgstr ""
+
+#: controllers/generator.php:158
+msgid "Only CSV files are accepted"
+msgstr ""
+
+#: controllers/generator.php:162
+msgid "The file should be in UTF-8 Unicode format"
+msgstr ""
+
+#: controllers/generator.php:213
+msgid "Username (login):"
+msgstr ""
+
+#: controllers/generator.php:213
+msgid "Email address:"
+msgstr ""
+
+#: controllers/generator.php:214
+msgid "First name:"
+msgstr ""
+
+#: controllers/generator.php:214
+msgid "Last name:"
+msgstr ""
+
+#: controllers/generator.php:215
+msgid "Display name:"
+msgstr ""
+
+#: controllers/generator.php:215
+msgid "User roles:"
+msgstr ""
+
+#: controllers/generator.php:216
+msgid "Registration date / time:"
+msgstr ""
+
+#: controllers/popups.php:20
+msgid "Open modal"
+msgstr ""
+
+#: controllers/popups.php:22
+msgid "Close"
+msgstr ""
+
+#: controllers/tables.php:13
+msgid "Invalid data source"
+msgstr ""
+
+#: controllers/tabs.php:54
+msgid "Tab"
+msgstr ""
+
+#: models/main.php:88
+msgid "Shortcode Revolution"
+msgstr ""
+
+#: models/main.php:90
+msgid "Get Shortcodes"
+msgstr ""
+
+#: models/main.php:92
+msgid "Settings"
+msgstr ""
+
+#: models/main.php:94
+msgid "Help"
+msgstr ""
+
+#: models/main.php:96
+msgid "Custom Shortcodes"
+msgstr ""
+
+#: views/comments-carousel.html.php:17
+msgid "From %1$s on %2$s"
+msgstr ""
+
+#: views/comments-regular.html.php:14
+msgid "%1$s on %2$s:"
+msgstr ""
+
+#: views/custom-shortcode.html.php:8
+msgid "Each of these shortcodes allows enclosing contents. In that case using the variable %s in the shortcode box allows you to wrap the content inside a text or HTML code."
+msgstr ""
+
+#: views/custom-shortcode.html.php:3
+msgid "Add/Edit a Custom Shortcode"
+msgstr ""
+
+#: views/custom-shortcode.html.php:5
+msgid "Back to the shortcode generator"
+msgstr ""
+
+#: views/custom-shortcode.html.php:7
+msgid "The custom shortcodes are just stored pieces of contents, HTML code, etc, which you can reuse across your site to save time"
+msgstr ""
+
+#: views/custom-shortcode.html.php:12
+msgid "Shortcode name"
+msgstr ""
+
+#: views/custom-shortcode.html.php:14
+msgid "Generated content:"
+msgstr ""
+
+#: views/custom-shortcode.html.php:17
+msgid "Save shortcode"
+msgstr ""
+
+#: views/custom-shortcode.html.php:18
+msgid "Delete"
+msgstr ""
+
+#: views/custom-shortcode.html.php:26
+msgid "Are you sure?"
+msgstr ""
+
+#: views/generator.html.php:241
+msgid "In each [srevo-grid-item] shortcode you can pass individual \"grid_column\" parameter to specify that the item will spread over several columns in the grid. <a href=\"%1$s\" target=\"_blank\">Learn more here</a>. Example: %2$s"
+msgstr ""
+
+#: views/generator.html.php:308
+msgid "Tab %d"
+msgstr ""
+
+#: views/generator.html.php:343
+msgid "Demo Button"
+msgstr ""
+
+#: views/generator.html.php:2
+msgid "Generate Shortcodes"
+msgstr ""
+
+#: views/generator.html.php:5
+msgid "Posts &amp; Comments"
+msgstr ""
+
+#: views/generator.html.php:6
+msgid "Popups &amp; Modals"
+msgstr ""
+
+#: views/generator.html.php:7
+msgid "Columns &amp; Grid"
+msgstr ""
+
+#: views/generator.html.php:8
+msgid "Tabs"
+msgstr ""
+
+#: views/generator.html.php:9
+msgid "Buttons"
+msgstr ""
+
+#: views/generator.html.php:10
+msgid "Tables"
+msgstr ""
+
+#: views/generator.html.php:11
+msgid "Flashcards"
+msgstr ""
+
+#: views/generator.html.php:12
+msgid "Data Shortcodes"
+msgstr ""
+
+#: views/generator.html.php:18
+msgid "Shortcodes for posts or comments"
+msgstr ""
+
+#: views/generator.html.php:20
+msgid "All search fields / filters are optional"
+msgstr ""
+
+#: views/generator.html.php:25
+msgid "Dispaly:"
+msgstr ""
+
+#: views/generator.html.php:26
+msgid "Posts"
+msgstr ""
+
+#: views/generator.html.php:27
+msgid "Related posts"
+msgstr ""
+
+#: views/generator.html.php:28
+msgid "Comments"
+msgstr ""
+
+#: views/generator.html.php:35
+msgid "From (author email):"
+msgstr ""
+
+#: views/generator.html.php:39
+msgid "For post:"
+msgstr ""
+
+#: views/generator.html.php:41
+msgid "Current (where the shortcode is published)"
+msgstr ""
+
+#: views/generator.html.php:42
+msgid "Any post"
+msgstr ""
+
+#: views/generator.html.php:43
+msgid "Specific post ID:"
+msgstr ""
+
+#: views/generator.html.php:49
+msgid "Order by:"
+msgstr ""
+
+#: views/generator.html.php:50
+msgid "Author"
+msgstr ""
+
+#: views/generator.html.php:51
+msgid "Date"
+msgstr ""
+
+#: views/generator.html.php:52
+msgid "Karma"
+msgstr ""
+
+#: views/generator.html.php:56
+msgid "Ascending"
+msgstr ""
+
+#: views/generator.html.php:57
+msgid "Descending"
+msgstr ""
+
+#: views/generator.html.php:62
+msgid "Number of comments:"
+msgstr ""
+
+#: views/generator.html.php:66
+msgid "Display as:"
+msgstr ""
+
+#: views/generator.html.php:67
+msgid "Default / regular"
+msgstr ""
+
+#: views/generator.html.php:68
+msgid "Carousel"
+msgstr ""
+
+#: views/generator.html.php:75
+msgid "Related to post ID:"
+msgstr ""
+
+#: views/generator.html.php:76
+msgid "leave empty to generate shortcode related to the post it is published in"
+msgstr ""
+
+#: views/generator.html.php:80
+msgid "Criteria:"
+msgstr ""
+
+#: views/generator.html.php:81
+msgid "Common tags"
+msgstr ""
+
+#: views/generator.html.php:82
+msgid "Common categories"
+msgstr ""
+
+#: views/generator.html.php:83
+msgid "Common tags and categories"
+msgstr ""
+
+#: views/generator.html.php:88
+msgid "Number of posts:"
+msgstr ""
+
+#: views/generator.html.php:94
+msgid "List"
+msgstr ""
+
+#: views/generator.html.php:102
+msgid "With these IDs:"
+msgstr ""
+
+#: views/generator.html.php:103
+msgid "separate multiple post IDs with comma"
+msgstr ""
+
+#: views/generator.html.php:107
+msgid "Of these post types:"
+msgstr ""
+
+#: views/generator.html.php:108
+msgid "separate multiple post types with comma"
+msgstr ""
+
+#: views/generator.html.php:112
+msgid "In these categories:"
+msgstr ""
+
+#: views/generator.html.php:113
+msgid "category slugs, separated by comma"
+msgstr ""
+
+#: views/generator.html.php:117
+msgid "Having any of these tags:"
+msgstr ""
+
+#: views/generator.html.php:118
+msgid "tags, separated by comma"
+msgstr ""
+
+#: views/generator.html.php:122
+msgid "Contains (search phrase):"
+msgstr ""
+
+#: views/generator.html.php:131
+msgid "ID"
+msgstr ""
+
+#: views/generator.html.php:133
+msgid "Title"
+msgstr ""
+
+#: views/generator.html.php:135
+msgid "Comment count"
+msgstr ""
+
+#: views/generator.html.php:136
+msgid "Random"
+msgstr ""
+
+#: views/generator.html.php:153
+msgid "Generate Shortcode"
+msgstr ""
+
+#: views/generator.html.php:183
+msgid "Shortcodes for modal windows / lightboxes"
+msgstr ""
+
+#: views/generator.html.php:186
+msgid "Contents of the modal window / lighbox"
+msgstr ""
+
+#: views/generator.html.php:188
+msgid "Clickable link/button text:"
+msgstr ""
+
+#: views/generator.html.php:189
+msgid "CSS class for the clickable link:"
+msgstr ""
+
+#: views/generator.html.php:195
+msgid "If you have inserted contents of the modal window here you need to use the shortcode in \"Text\" mode of the rich text editor."
+msgstr ""
+
+#: views/generator.html.php:201
+msgid "Shortcodes for columns and grids"
+msgstr ""
+
+#: views/generator.html.php:204
+msgid "Type of layout to create:"
+msgstr ""
+
+#: views/generator.html.php:205
+msgid "Newspaper-like content flowing in columns"
+msgstr ""
+
+#: views/generator.html.php:205
+msgid "See example"
+msgstr ""
+
+#: views/generator.html.php:206
+msgid "Grid: a fixed number of columns with different pieces of content into each column."
+msgstr ""
+
+#: views/generator.html.php:210
+msgid "Column count:"
+msgstr ""
+
+#: views/generator.html.php:211
+msgid "Column gap:"
+msgstr ""
+
+#: views/generator.html.php:212
+msgid "Column rule:"
+msgstr ""
+
+#: views/generator.html.php:212
+msgid "Short CSS notation. Example: 1px solid blue"
+msgstr ""
+
+#: views/generator.html.php:213
+msgid "Optimal column width:"
+msgstr ""
+
+#: views/generator.html.php:213
+msgid "Optional. Example: 100px"
+msgstr ""
+
+#: views/generator.html.php:215
+msgid "Your content"
+msgstr ""
+
+#: views/generator.html.php:221
+msgid "Number of items:"
+msgstr ""
+
+#: views/generator.html.php:221
+msgid "Each item can be spread into multiple columns:"
+msgstr ""
+
+#: views/generator.html.php:222
+msgid "Grid padding:"
+msgstr ""
+
+#: views/generator.html.php:223
+msgid "Items padding:"
+msgstr ""
+
+#: views/generator.html.php:224
+msgid "Items border:"
+msgstr ""
+
+#: views/generator.html.php:239
+msgid "If you have inserted contents for the columns or grid here you need to use the shortcode in \"Text\" mode of the rich text editor."
+msgstr ""
+
+#: views/generator.html.php:300
+msgid "Shortcodes for tabs"
+msgstr ""
+
+#: views/generator.html.php:303
+msgid "Number of tabs:"
+msgstr ""
+
+#: views/generator.html.php:303
+msgid "Show form"
+msgstr ""
+
+#: views/generator.html.php:319
+msgid "If you have inserted contents for the tabs here you need to use the shortcode in \"Text\" mode of the rich text editor."
+msgstr ""
+
+#: views/generator.html.php:338
+msgid "Shortcodes for buttons"
+msgstr ""
+
+#: views/generator.html.php:343
+msgid "Button text:"
+msgstr ""
+
+#: views/generator.html.php:344
+msgid "Button link / href:"
+msgstr ""
+
+#: views/generator.html.php:346
+msgid "Style and classes:"
+msgstr ""
+
+#: views/generator.html.php:348
+msgid "Default for your theme"
+msgstr ""
+
+#: views/generator.html.php:349
+msgid "Flat"
+msgstr ""
+
+#: views/generator.html.php:350
+msgid "Empty"
+msgstr ""
+
+#: views/generator.html.php:351
+msgid "Glass"
+msgstr ""
+
+#: views/generator.html.php:352
+msgid "3d"
+msgstr ""
+
+#: views/generator.html.php:354
+msgid "Custom CSS classes:"
+msgstr ""
+
+#: views/generator.html.php:355
+msgid "Text color:"
+msgstr ""
+
+#: views/generator.html.php:356
+msgid "Background color:"
+msgstr ""
+
+#: views/generator.html.php:357
+msgid "Font size"
+msgstr ""
+
+#: views/generator.html.php:358
+msgid "Padding"
+msgstr ""
+
+#: views/generator.html.php:359
+msgid "Button border radius (rounding)"
+msgstr ""
+
+#: views/generator.html.php:360
+msgid "Refresh preview"
+msgstr ""
+
+#: views/generator.html.php:365
+msgid "Preview"
+msgstr ""
+
+#: views/generator.html.php:366
+msgid "Demo, non functional"
+msgstr ""
+
+#: views/generator.html.php:405
+msgid "Shortcodes for tables from CSV"
+msgstr ""
+
+#: views/generator.html.php:410
+msgid "Upload a CSV file:"
+msgstr ""
+
+#: views/generator.html.php:411
+msgid "Field delimiter:"
+msgstr ""
+
+#: views/generator.html.php:412
+msgid "Comma"
+msgstr ""
+
+#: views/generator.html.php:413
+msgid "Semicolon"
+msgstr ""
+
+#: views/generator.html.php:416
+msgid "Table CSS classes:"
+msgstr ""
+
+#: views/generator.html.php:427
+msgid "Shortcodes for Flashcards"
+msgstr ""
+
+#: views/generator.html.php:433
+msgid "Flashcard Front side"
+msgstr ""
+
+#: views/generator.html.php:436
+msgid "Flashcard Back side"
+msgstr ""
+
+#: views/generator.html.php:439
+msgid "Width:"
+msgstr ""
+
+#: views/generator.html.php:441
+msgid "Height:"
+msgstr ""
+
+#: views/generator.html.php:443
+msgid "Border radius:"
+msgstr ""
+
+#: views/generator.html.php:445
+msgid "Front card color:"
+msgstr ""
+
+#: views/generator.html.php:447
+msgid "Back card color:"
+msgstr ""
+
+#: views/generator.html.php:449
+msgid "Padding:"
+msgstr ""
+
+#: views/generator.html.php:454
+msgid "This shortcode should be placed only in \"Text\" mode of the rich text editor."
+msgstr ""
+
+#: views/generator.html.php:466
+msgid "Data Pulling Shortcodes"
+msgstr ""
+
+#: views/generator.html.php:472
+msgid "User Data"
+msgstr ""
+
+#: views/generator.html.php:474
+msgid "These shortcodes allow you to publish data and meta data regarding an user. They are good for using on profile pages, author pages, and so on"
+msgstr ""
+
+#: views/generator.html.php:476
+msgid "Pull data for:"
+msgstr ""
+
+#: views/generator.html.php:477
+msgid "The user that is logged in"
+msgstr ""
+
+#: views/generator.html.php:478
+msgid "Specific user ID"
+msgstr ""
+
+#: views/generator.html.php:479
+msgid "User ID passed as URL parameter"
+msgstr ""
+
+#: views/generator.html.php:482
+msgid "ID:"
+msgstr ""
+
+#: views/generator.html.php:486
+msgid "Variable name:"
+msgstr ""
+
+#: views/generator.html.php:490
+msgid "Profile field or meta value:"
+msgstr ""
+
+#: views/generator.html.php:491
+msgid "All fields"
+msgstr ""
+
+#: views/generator.html.php:493
+msgid "User profile fields"
+msgstr ""
+
+#: views/generator.html.php:495
+msgid "Username (login)"
+msgstr ""
+
+#: views/generator.html.php:496
+msgid "Email address"
+msgstr ""
+
+#: views/generator.html.php:497
+msgid "First name"
+msgstr ""
+
+#: views/generator.html.php:498
+msgid "Last name"
+msgstr ""
+
+#: views/generator.html.php:499
+msgid "Display name"
+msgstr ""
+
+#: views/generator.html.php:500
+msgid "User roles"
+msgstr ""
+
+#: views/generator.html.php:501
+msgid "Registration date/time"
+msgstr ""
+
+#: views/generator.html.php:503
+msgid "Meta data fields"
+msgstr ""
+
+#: views/generator.html.php:534
+msgid "Create a new custom shortcode"
+msgstr ""
+
+#: views/generator.html.php:539
+msgid "Shortcode"
+msgstr ""
+
+#: views/generator.html.php:539
+msgid "Edit"
+msgstr ""
+
+#: views/help.html.php:1
+msgid "Shortcode Revolution Help"
+msgstr ""
+
+#: views/help.html.php:3
+msgid "Shortcode Revolution is a tool that allows you to easily and reliable create various elements on your site. Dynamic elements with data, static design elements like buttons and tables, and so on. It's techically possible to create the shortcodes manually but it's much easier to use the shortcode generator from your Shortcode Revolution menu."
+msgstr ""
+
+#: views/help.html.php:5
+msgid "Available Shortcodes"
+msgstr ""
+
+#: views/help.html.php:7
+msgid "Post and Comments Shortcodes"
+msgstr ""
+
+#: views/help.html.php:9
+msgid "This section allows you to generate shortcodes that dynamically list posts or comments based on search criteria. You can use the shortcodes in widgets or in your custom theme pages."
+msgstr ""
+
+#: views/help.html.php:11
+msgid "The <b>posts</b> shortcode lets you search posts by IDs, categories, types, tags or phrases and display them like:"
+msgstr ""
+
+#: views/help.html.php:14
+msgid "Default / regular</b> - the posts will be listed with thumbnail, excerpt, publication time, etc. This design (and many of the other Shortcode Revolution templates) can be overridden as explained in the section \"Overriding Shortcode Revolution Templates\" at the end of this guide."
+msgstr ""
+
+#: views/help.html.php:15
+msgid "<b>List</b> is a short unordered list with the post titles and links."
+msgstr ""
+
+#: views/help.html.php:16
+msgid "<b>Carousel</b> creates a slider / carousel from the posts that respond to your criteria. We use our own custom slider code - no bloated ready sliders, so it's very light and simple."
+msgstr ""
+
+#: views/help.html.php:19
+msgid "The <b>related posts</b> shortcode finds and displays which are related to the current or selected post. You can give relation criteria like matching tags and/or categories. The display formats are the same as with the posts shortcode. This excellent shortcode can be added at the bottom of your single post template to always display related content without using yet another plugin."
+msgstr ""
+
+#: views/help.html.php:21
+msgid "The <b>comments</b> shortcode displays comments related to a post or just most recent / best comments. The display formats are default and carousel / slider."
+msgstr ""
+
+#: views/help.html.php:23
+msgid "Popups / Modals"
+msgstr ""
+
+#: views/help.html.php:25
+msgid "This shortcode lets you create modal windows / lightboxes with any predefined content. It generates a button to click on which appears on the place of the shortcode so you can use it anywhere in your site. This makes it super easy to create lightboxes without writing code or using more plugins.</p>
+<p>The modals can contain any kind of images and media, text, other shortcodes, and so on. If your modal contains anything other than plain unformtatted text make sure to insert it in Text mode of your rich text editor (when pasting it in posts, pages, etc)."
+msgstr ""
+
+#: views/help.html.php:28
+msgid "Columns &amp; Grids"
+msgstr ""
+
+#: views/help.html.php:30
+msgid "These shortcodes let you create modern cross-browser compatible and responsive content that flows in columns or a grid."
+msgstr ""
+
+#: views/help.html.php:32
+msgid "The <b>newspaper-like option</b> creates content that automatically flows in multiple columns."
+msgstr ""
+
+#: views/help.html.php:34
+msgid "The <b>grid option</b> is more precise in the way that your content flows on the page. You choose exactly what goes into each cell of the grid - the content does not low through the cells / columns. The grid option can also use your custom template."
+msgstr ""
+
+#: views/help.html.php:38
+msgid "The tabs shortcode lets you create tabbed content where the tabs do not reload the whole page. Very easy, light and responsive."
+msgstr ""
+
+#: views/help.html.php:42
+msgid "With this shortcode you can create your own design for buttons - colors, size, style, fonts, and so on. Currently buttons support only URL action (going to another page). Calling custom JS functions is coming soon."
+msgstr ""
+
+#: views/help.html.php:46
+msgid "The tables shortcode gives you a super easy way to turn an Excel (CSV) sheet into a HTML table. The data is loaded on the fly so you don't need to recreate the shortcode when the file contents change."
+msgstr ""
+
+#: views/help.html.php:50
+msgid "This shortcode creates nice interactive flashcards. Mostly used in education and educational games, flashcards typically ask a question and reveal the answer when clicked on them. The flashcards in Shortcode Revolution are just visual elements and do not (yet!) fire any back-end action when flipped."
+msgstr ""
+
+#: views/help.html.php:54
+msgid "The data shortcodes are used to dynamically pull data from your WordPress database."
+msgstr ""
+
+#: views/help.html.php:56
+msgid "We currently support <b>user data</b> shortcode. This shortcode allows you pull data for the currently logged in user, a predefined user, or an user defined by an URL parameter. The shortcode can return data for a specific field of the user profile or use meta, or return the whole user data in a string with variables. In the latter case this is given to you as enclosed content of the shortcode and you can fully modify it before placing it anywhere in your site."
+msgstr ""
+
+#: views/help.html.php:60
+msgid "This is an easy way to create predefined pieces of content which you can save and use anywhere. Editing the shortcode in the generator will automatically reflect all occurrences of this shortcode in your site."
+msgstr ""
+
+#: views/help.html.php:62
+msgid "Overriding Shortcode Revolution Templates"
+msgstr ""
+
+#: views/help.html.php:64
+msgid "Some of the default designs of the shortcodes - currently for posts, comments, and grid shortcodes - can be overridden with your own versions. To do this create a folder called \"shortcode-revolution\" inside your WP theme folder. Copy the associated view file from our plugin to that folder and make your changes there. The plugin will use your version and your changes will not be lost when you apply updates to the plugin."
+msgstr ""
+
+#: views/help.html.php:66
+msgid "For example if you want to override the carousel for posts, copy the file views/posts-carousel.html.php and make changes to the copy."
+msgstr ""
+
+#: views/help.html.php:68
+msgid "Help and Customziation"
+msgstr ""
+
+#: views/help.html.php:70
+msgid "If you are looking for a shortcode or a feature which is not yet available in the plugin you can contact us at <a href=\"mailto:support@kibokolabs.com\">support@kibokolabs.com</a>. Some of the suggestions can be added to the plugin. In other cases we can offer you custom development service."
+msgstr ""
+
+#: views/settings.html.php:2
+msgid "Shortcode Revolution Settings"
+msgstr ""
+
+#: views/settings.html.php:6
+msgid "Custom CSS"
+msgstr ""
+
+#: views/settings.html.php:7
+msgid "Custom CSS for your shortcodes"
+msgstr ""
+
+#: views/settings.html.php:12
+msgid "Manage roles"
+msgstr ""
+
+#: views/settings.html.php:13
+msgid "Specify roles that can have access to managing this plugin (except this settings page - it will always be accessible only to administrators."
+msgstr ""
+
+#: views/settings.html.php:22
+msgid "Save Settings"
+msgstr ""

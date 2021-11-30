@@ -10,7 +10,7 @@ class ShortcodeRevolutionTables extends ShortcodeRevolutionShortcode {
 		// check data source
 		$contents = wp_remote_get(esc_url_raw($atts['data_source']));
 		
-		if(empty($contents)) return __('Invalid data source', 'srevo');
+		if(empty($contents)) return __('Invalid data source', 'shortcode-revolution');
 		
 		// now parse the CSV into a table
 		switch($atts['delimiter']) {

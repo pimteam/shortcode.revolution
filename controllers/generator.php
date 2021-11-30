@@ -155,11 +155,11 @@ class ShortcodeRevolutionGenerator {
 					// must have a CSV extension
 					$error = false;
 					if($uploadedfile['type'] != 'text/csv') {
-						$error = __('Only CSV files are accepted', 'srevo');
+						$error = __('Only CSV files are accepted', 'shortcode-revolution');
 					}
 					$content = file_get_contents($_FILES['csv']['tmp_name']);
 					if(!$error and !mb_detect_encoding($content, 'UTF-8', true)) {
-						$error = __('The file should be in UTF-8 Unicode format', 'srevo');
+						$error = __('The file should be in UTF-8 Unicode format', 'shortcode-revolution');
 					}
 					
 					$upload_overrides = array( 'test_form' => false );
@@ -210,10 +210,10 @@ class ShortcodeRevolutionGenerator {
 					
 					// all fields? Then construct a string inside the shortcode instead
 					if($_POST['field'] == '__ALL__') {
-						$content = "ID: {{ID}}\n".__('Username (login):', 'srevo')." {{user_login}}\n".__('Email address:', 'srevo')." {{user_email}}\n";
-						$content .= __('First name:', 'srevo')." {{first_name}}\n".__('Last name:', 'srevo')." {{last_name}}\n";
-						$content .= __('Display name:', 'srevo')." {{display_name}}\n".__('User roles:', 'srevo')." {{user_roles}}\n";
-						$content .= __('Registration date / time:', 'srevo')." {{user_registered}}\n";		
+						$content = "ID: {{ID}}\n".__('Username (login):', 'shortcode-revolution')." {{user_login}}\n".__('Email address:', 'shortcode-revolution')." {{user_email}}\n";
+						$content .= __('First name:', 'shortcode-revolution')." {{first_name}}\n".__('Last name:', 'shortcode-revolution')." {{last_name}}\n";
+						$content .= __('Display name:', 'shortcode-revolution')." {{display_name}}\n".__('User roles:', 'shortcode-revolution')." {{user_roles}}\n";
+						$content .= __('Registration date / time:', 'shortcode-revolution')." {{user_registered}}\n";		
 						
 						// now add meta
 						foreach($meta_keys as $meta_key) $content .= $meta_key->meta_key.": {{meta_".$meta_key->meta_key."}}\n";
