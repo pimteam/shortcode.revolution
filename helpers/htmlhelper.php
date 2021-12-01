@@ -26,7 +26,7 @@ function srevo_enqueue_datepicker() {
 		wp_enqueue_script('jquery-ui-i18n-'.$locale, $locale_url, array('jquery-ui-datepicker'));
 	}
 	$css_url = get_option('srevo_datepicker_css');
-	if(empty($css_url)) $css_url = '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css';
+	if(empty($css_url)) $css_url = SREVO_URL . '/jquery-ui.css';
 	wp_enqueue_style('jquery-style', $css_url);
 }
 
