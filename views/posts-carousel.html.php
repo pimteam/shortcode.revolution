@@ -11,11 +11,11 @@
 				<?php foreach($posts as $p):
 					$background_image =  has_post_thumbnail( $p->ID )  ?  get_the_post_thumbnail_url($p->ID) : ''; 
 					$excerpt = get_the_excerpt($p->ID);?>
-				<li id="srevo-post-id-<?php echo $p->ID?>" style="background-image: url(<?php echo $background_image;?>);">
+				<li id="srevo-post-id-<?php echo $p->ID?>" style="background-image: url(<?php echo esc_attr($background_image);?>);">
 				
 				   <?php if(!empty($excerpt)):?>					
 					<div class="srevo-post-excerpt">
-						<?php echo $excerpt; ?>
+						<?php echo apply_filers('the_content', $excerpt); ?>
 					</div>				
 					<?php endif;?>
 					

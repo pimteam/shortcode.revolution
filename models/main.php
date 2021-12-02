@@ -134,7 +134,7 @@ class ShortcodeRevolution {
 		if(empty($_GET['srevo_dynamic_css'])) return true;
 		header("Content-type: text/css; charset: UTF-8");
 		$custom_css = get_option('srevo_custom_css');
-		echo stripslashes($custom_css);
+		echo esc_html(stripslashes($custom_css));
 		exit;
 	} // end dynamic_css_redirect
 }

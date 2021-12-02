@@ -1,8 +1,8 @@
 <?php defined( 'ABSPATH' ) || exit;
 // grid shortcode template [srevo-grd] ?>
 
-<div class="srevo-grid-container<?php echo $unique_cnt;?>">
-		 <?php echo do_shortcode(stripslashes($content));?>
+<div class="srevo-grid-container<?php echo esc_attr($unique_cnt);?>">
+		 <?php echo apply_filters('the_content', $content);?>
 </div>
 
 <style type="text/css">

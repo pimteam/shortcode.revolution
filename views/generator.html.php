@@ -193,7 +193,7 @@
 		    	
 		    	<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>
 		    		<p class="srevo-help"><?php _e('If you have inserted contents of the modal window here you need to use the shortcode in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>
-			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo esc_textarea($shortcode);?></textarea>
 		    	<?php endif;?>
 			</form>   	
     	<?php endif; // end if modals
@@ -217,11 +217,11 @@
 				   </div>
 				   
 				   <div id="columnsGridDiv" style='display:<?php echo (!empty($_POST['content_type']) and $_POST['content_type'] == 'grid') ? 'block' : 'none';?>'>
-				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="grid_column_count" value="<?php echo $grid_columns;?>" onkeyup="gridChangeNumColumns(this.value)" size="2" maxlength="2"></p>
-				   	<p><label><?php _e('Number of items:', 'shortcode-revolution');?></label> <input type="text" name="num_items" value="<?php echo $grid_items;?>" onkeyup="gridChangeNumItems(this.value)" size="3" maxlength="3"> <span class="srevo-help"><?php _e('Each item can be spread into multiple columns:', 'shortcode-revolution');?></span></p>
-						<p><label><?php _e('Grid padding:', 'shortcode-revolution');?></label> <input type="text" name="grid_padding" id="gridPadding" value="<?php echo $grid_padding;?>" onkeyup="gridChangePadding(this.value)"></p>
-						<p><label><?php _e('Items padding:', 'shortcode-revolution');?></label> <input type="text" name="item_padding" id="gridItemPadding" value="<?php echo $item_padding;?>" onkeyup="gridChangeItemPadding(this.value)"></p>
-						<p><label><?php _e('Items border:', 'shortcode-revolution');?></label> <input type="text" name="item_border" value="<?php echo $item_border;?>" onkeyup="gridChangeBorder(this.value)" id="gridBorder"></p>
+				   	<p><label><?php _e('Column count:', 'shortcode-revolution');?></label> <input type="text" name="grid_column_count" value="<?php echo intval($grid_columns);?>" onkeyup="gridChangeNumColumns(this.value)" size="2" maxlength="2"></p>
+				   	<p><label><?php _e('Number of items:', 'shortcode-revolution');?></label> <input type="text" name="num_items" value="<?php echo intval($grid_items);?>" onkeyup="gridChangeNumItems(this.value)" size="3" maxlength="3"> <span class="srevo-help"><?php _e('Each item can be spread into multiple columns:', 'shortcode-revolution');?></span></p>
+						<p><label><?php _e('Grid padding:', 'shortcode-revolution');?></label> <input type="text" name="grid_padding" id="gridPadding" value="<?php echo esc_attr($grid_padding);?>" onkeyup="gridChangePadding(this.value)"></p>
+						<p><label><?php _e('Items padding:', 'shortcode-revolution');?></label> <input type="text" name="item_padding" id="gridItemPadding" value="<?php echo esc_attr($item_padding);?>" onkeyup="gridChangeItemPadding(this.value)"></p>
+						<p><label><?php _e('Items border:', 'shortcode-revolution');?></label> <input type="text" name="item_border" value="<?php echo esc_attr($item_border);?>" onkeyup="gridChangeBorder(this.value)" id="gridBorder"></p>
 						
 						<div id="previewGrid">
 							<div class="grid-container" id="mainGrid">
@@ -240,7 +240,7 @@
 					<?php else:?>
 					<p class="srevo-help"><?php printf(__('In each [srevo-grid-item] shortcode you can pass individual "grid_column" parameter to specify that the item will spread over several columns in the grid. <a href="%1$s" target="_blank">Learn more here</a>. Example: %2$s', 'shortcode-revolution'), 'https://www.w3schools.com/css/css_grid_item.asp', '[srevo-grid-item grid_column="1 / 5"]');?></p>		    		
 		    		<?php endif;?>
-			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo esc_textarea($shortcode);?></textarea>
 		    	<?php endif;?>
 			</form>   	
 			<style type="text/css">
@@ -248,11 +248,11 @@
 			.grid-container {
 			  display: grid;
 			  grid-template-columns: <?php for($i=0; $i < $grid_columns; $i++):?> auto<?php endfor;?>;			  
-			  padding: <?php echo $grid_padding;?>;
+			  padding: <?php echo esc_attr($grid_padding);?>;
 			}
 			.grid-item {			  
-			  border: <?php echo $item_border;?>;
-			  padding: <?php echo $item_padding;?>;	 
+			  border: <?php echo esc_attr($item_border);?>;
+			  padding: <?php echo esc_attr($item_padding);?>;	 
 			  text-align: center;
 			}
 			</style>
@@ -322,7 +322,7 @@
     			
 	    		</div>
 	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>			    
-			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo esc_textarea($shortcode);?></textarea>
 		    	<?php endif;?>
 			</form>   	
 			
@@ -372,7 +372,7 @@
 				</div>
 				
 	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>			    
-			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo esc_textarea($shortcode);?></textarea>
 		    	<?php endif;?>	
 			</form>   	
 			<script type="text/javascript" >			
@@ -405,7 +405,7 @@
 			<h2><?php _e('Shortcodes for tables from CSV', 'shortcode-revolution');?></h2>
 			<form method="post" enctype="multipart/form-data">
 					<?php if(!empty($error)):?>
-						<p class="error srevo-error"><?php echo $error;?></p>
+						<p class="error srevo-error"><?php echo esc_html($error);?></p>
 					<?php endif;?>
 	    		   <p><label><?php _e('Upload a CSV file:', 'shortcode-revolution');?></label> <input type="file" name="csv" required></p>
 	    		   <p><label><?php _e('Field delimiter:', 'shortcode-revolution');?></label> <select name="delim">
@@ -418,7 +418,7 @@
 	    			<p><input type="submit" name="generate" value="<?php _e('Generate Shortcode', 'shortcode-revolution');?>" class="button-primary"></p>
 	    		
 	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>			    
-			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo esc_textarea($shortcode);?></textarea>
 		    	<?php endif;?>
 			</form>   	
 			
@@ -427,7 +427,7 @@
 			<h2><?php _e('Shortcodes for Flashcards', 'shortcode-revolution');?></h2>
 			<form method="post" enctype="multipart/form-data">
 					<?php if(!empty($error)):?>
-						<p class="error srevo-error"><?php echo $error;?></p>
+						<p class="error srevo-error"><?php echo esc_html($error);?></p>
 					<?php endif;?>
 	    		  	
 	    		  	<h2><?php _e('Flashcard Front side', 'shortcode-revolution');?></h2>
@@ -452,7 +452,7 @@
 	    		
 	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>
 	    			<p class="srevo-help"><?php _e('This shortcode should be placed only in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>			    
-			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo esc_textarea($shortcode);?></textarea>
 		    	<?php endif;?>
 			</form>   	
 			
@@ -466,7 +466,7 @@
 			<h2><?php _e('Data Pulling Shortcodes', 'shortcode-revolution');?></h2>
 			<form method="post" enctype="multipart/form-data">
 					<?php if(!empty($error)):?>
-						<p class="error srevo-error"><?php echo $error;?></p>
+						<p class="error srevo-error"><?php echo esc_html($error);?></p>
 					<?php endif;?>
 	    		  	
 	    		  	<h3><?php _e('User Data', 'shortcode-revolution');?></h3>
@@ -502,7 +502,7 @@
 	    		  		</optgroup>
 	    		  		<optgroup label="<?php _e('Meta data fields', 'shortcode-revolution');?>">
 	    		  			<?php foreach($meta_keys as $meta_key):?>
-	    		  				<option value="meta_<?php echo $meta_key->meta_key?>" <?php if(!empty($_POST['field']) and $_POST['field'] == 'meta_'.$meta_key->meta_key) echo 'selected';?>><?php echo $meta_key->meta_key;?></option>
+	    		  				<option value="meta_<?php echo $meta_key->meta_key?>" <?php if(!empty($_POST['field']) and $_POST['field'] == 'meta_'.$meta_key->meta_key) echo 'selected';?>><?php echo esc_attr($meta_key->meta_key);?></option>
 	    		  			<?php endforeach;?>
 	    		  		</optgroup>	    		  		
 	    		  	</select></p>
@@ -511,7 +511,7 @@
 	    		
 	    		<?php if(!empty($_POST['generate']) and !empty($shortcode)):?>
 	    			<p class="srevo-help"><?php _e('This shortcode should be placed only in "Text" mode of the rich text editor.', 'shortcode-revolution');?></p>			    
-			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo $shortcode;?></textarea>
+			    	<textarea cols="120" rows="10" readonly="readonly" onclick="this.select()"><?php echo esc_html($shortcode);?></textarea>
 		    	<?php endif;?>
 			</form>   	
 			
@@ -541,7 +541,7 @@
 					<?php foreach($shortcodes as $shortcode):
 						if(empty($class)) $class = 'alternate';
 						else $class = '';?>
-						<tr class="<?php echo $class;?>">
+						<tr class="<?php echo esc_attr($class);?>">
 							<td><?php echo stripslashes($shortcode->name);?></td>
 							<td><input type="text" size="40" onclick="this.select();" readonly value='[srevo-shortcode name="<?php echo $shortcode->name?>" id="<?php echo $shortcode->id?>"][/srevo-shortcode]'></td>
 							<td><a href="admin.php?page=shortcode_revolution_custom&do=edit&id=<?php echo $shortcode->id;?>"><?php _e('Edit', 'shortcode-revolution');?></a></td>

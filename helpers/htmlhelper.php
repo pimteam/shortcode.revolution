@@ -105,7 +105,7 @@ function srevo_unique_cnt() {
 	// ensure unque ID
 	if(empty($_POST['srevo_unique_cnt'])) $_POST['srevo_unique_cnt'] = 1;
 	else $_POST['srevo_unique_cnt'] = intval($_POST['srevo_unique_cnt']) + 1; 
-	$unique_cnt = $_POST['srevo_unique_cnt'];
+	$unique_cnt = intval($_POST['srevo_unique_cnt']);
 	
 	return $unique_cnt;
 }

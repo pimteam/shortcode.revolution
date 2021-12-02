@@ -5,7 +5,7 @@
 		<fieldset>
 			<h3><?php _e('Custom CSS', 'shortcode-revolution');?></h3>
 			<p><b><?php _e('Custom CSS for your shortcodes', 'shortcode-revolution');?></b> <br>
-			<textarea cols="80" rows="10" name="custom_css"><?php echo stripslashes($custom_css);?></textarea></p>
+			<textarea cols="80" rows="10" name="custom_css"><?php echo esc_textarea(stripslashes($custom_css));?></textarea></p>
 		</fieldset>
 		
 		<fieldset>
