@@ -119,10 +119,14 @@ None yet, please ask in the forum
 
 == Screenshots ==
 
-1. View contact forms and number of entries
+1. Get shortcodes for posts
+2. Shortcodes for tabbed content
+3. Easily create buttons with different designs
+4. Pull data from user's profile
+5. Front-end view of posts shortcode in "carousel" mode.
 
 
 == Changelog ==
 
-= Version 0.3.5 =
+= Version 0.3.6 =
 - First public release

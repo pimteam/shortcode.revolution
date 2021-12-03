@@ -15,7 +15,7 @@
 				
 				   <?php if(!empty($excerpt)):?>					
 					<div class="srevo-post-excerpt">
-						<?php echo apply_filers('the_content', $excerpt); ?>
+						<?php echo apply_filters('the_content', $excerpt); ?>
 					</div>				
 					<?php endif;?>
 					
@@ -135,7 +135,7 @@
             // Handle clicks on the previous button
             slider.parent().on("click", "a#btn-next", function(e){
                 e.preventDefault();
- 
+
                 slider.animate({
                     left: -item_width
                 }, 300, "swing", function(){
