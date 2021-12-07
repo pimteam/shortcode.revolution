@@ -85,10 +85,10 @@ class ShortcodeRevolutionGenerator {
 			   			if(!empty($_POST['grid_padding'])) $shortcode .= ' grid_padding="'.sanitize_text_field($_POST['grid_padding']).'"';
 			   			if(!empty($_POST['item_padding'])) $shortcode .= ' item_padding="'.sanitize_text_field($_POST['item_padding']).'"';
 			   			if(!empty($_POST['item_border'])) $shortcode .= ' item_border="'.sanitize_text_field($_POST['item_border']).'"';
-			   			$shortcode .= ']'."\n";			   			
+			   			$shortcode .= ']';			   			
 			   			
 							for($i=0; $i < $grid_items; $i++) {
-								$shortcode .= '[srevo-grid-item] '.sprintf(__('Content %d', 'shortcode-revolution'), $i+1).' [/srevo-grid-item]'."\n";
+								$shortcode .= '[srevo-grid-item] '.sprintf(__('Content %d', 'shortcode-revolution'), $i+1).' [/srevo-grid-item]';
 							} 			   			
 			   			
 				   	$shortcode .= '[/srevo-grid]';			

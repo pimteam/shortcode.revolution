@@ -2,7 +2,7 @@
 // grid shortcode template [srevo-grd] ?>
 
 <div class="srevo-grid-container<?php echo esc_attr($unique_cnt);?>">
-		 <?php echo apply_filters('the_content', $content);?>
+		 <?php echo do_shortcode(wp_kses_post($content));?>
 </div>
 
 <style type="text/css">
