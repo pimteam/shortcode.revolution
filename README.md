@@ -4,7 +4,7 @@ Shortcode Revolution is a tool that allows you to easily and reliable create var
 
 [See some live demos here.](https://blog.calendarscripts.info/shortcode-revolution-for-wordpress/ "Description and demos of the shortcodes")
 
-= Available Shortcodes =
+== Available Shortcodes ==
 
 **Post and Comments Shortcodes**
 
