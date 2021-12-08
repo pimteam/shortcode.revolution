@@ -184,7 +184,7 @@ class ShortcodeRevolutionGenerator {
 					$shortcode .= ']';
 					
 			
-					$shortcode .= wp_kses_post($_POST['flashcard_front']).'<!-- split -->'.wp_kses_post($_POST['flashcard_back']);				
+					$shortcode .= wp_kses_post(stripslashes($_POST['flashcard_front'])).'<!-- split -->'.wp_kses_post(stripslashes($_POST['flashcard_back']));				
 					
 					$shortcode .= '[/srevo-flashcard]';
 				}

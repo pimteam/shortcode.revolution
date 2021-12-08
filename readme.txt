@@ -4,7 +4,7 @@ Tags: shortcodes, buttons, tabs, tables, carousel, grid, user profile
 Requires at least: 4.2
 Requires PHP: 7.0
 Tested up to: 5.8
-Stable tag: 0.3.7
+Stable tag: 0.3.9
 License: GPLv2 or later
 
 Shortcode everything. The low code / no code tool for WordPress developers, designers, and power users.
@@ -28,7 +28,9 @@ Shortcode everything. The low code / no code tool for WordPress developers, desi
 
 == Description ==
 
-Shortcode Revolution is a tool that allows you to easily and reliable create various elements on your site. Dynamic elements with data, static design elements like buttons and tables, and so on. It's techically possible to create the shortcodes manually but it's much easier to use the shortcode generator from your Shortcode Revolution menu.
+Shortcode Revolution is a tool that allows you to easily and reliable create various elements on your site. Dynamic elements with data, static design elements like buttons and tables, and so on. It's technically possible to create the shortcodes manually but it's much easier to use the shortcode generator from your Shortcode Revolution menu.
+
+[See some live demos here.](https://blog.calendarscripts.info/shortcode-revolution-for-wordpress/ "Description and demos of the shortcodes")
 
 = Available Shortcodes =
 
@@ -128,8 +130,9 @@ None yet, please ask in the forum
 
 == Changelog ==
 
-= Version 0.3.7 = 
+= Version 0.3.9 = 
 1. Cleanup of new lines and wpautop() from the grid / columns shortcode and the generator.
+2. Fixed issues with backslashes and new lines in the flascards shortcode.
 
 = Version 0.3.6 =
 - First public release
