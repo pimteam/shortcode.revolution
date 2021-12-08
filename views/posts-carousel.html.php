@@ -20,7 +20,7 @@
 					<?php endif;?>
 					
 					<a href="<?php echo get_permalink($p->ID); ?>">
-	                <span class="srevo-post-title"><?php echo get_the_title($p->ID); ?></span>
+	                <span class="srevo-post-link"><?php echo get_the_title($p->ID); ?></span>
 	            </a>
 	         
 				</li>
@@ -78,13 +78,12 @@
 
 /* Position our caption at the bottom right corner of the slide */
  #srevo-slideshow-container<?php echo $post->ID?> #srevo-slideshow<?php echo $post->ID?> li a span {
-     display: inline-block;
-     position: absolute;
-     right: 0;
+     display: inline-block;     
+     text-align: right;
+     width: 100%;
      bottom: 6em;
      padding: 0.75em 1.5em;
-     font-size: 1.3em;
-     background: #000000; /* fallback for old browsers */
+     font-size: 1.3em;      
      background: rgba(0, 0, 0, 0.8);
  }
  
