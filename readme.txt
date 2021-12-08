@@ -28,7 +28,7 @@ Shortcode everything. The low code / no code tool for WordPress developers, desi
 
 == Description ==
 
-Shortcode Revolution is a tool that allows you to easily and reliable create various elements on your site. Dynamic elements with data, static design elements like buttons and tables, and so on. It's technically possible to create the shortcodes manually but it's much easier to use the shortcode generator from your Shortcode Revolution menu.
+Shortcode Revolution is a tool that allows you to easily and reliably create various elements on your site. Dynamic elements with data, static design elements like buttons and tables, and so on. It's technically possible to create the shortcodes manually but it's much easier to use the shortcode generator from your Shortcode Revolution menu.
 
 [See some live demos here.](https://blog.calendarscripts.info/shortcode-revolution-for-wordpress/ "Description and demos of the shortcodes")
 
