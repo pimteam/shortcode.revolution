@@ -55,6 +55,8 @@
 
 <p><?php _e('We currently support <b>user data</b> shortcode. This shortcode allows you pull data for the currently logged in user, a predefined user, or an user defined by an URL parameter. The shortcode can return data for a specific field of the user profile or use meta, or return the whole user data in a string with variables. In the latter case this is given to you as enclosed content of the shortcode and you can fully modify it before placing it anywhere in your site.', 'shortcode-revolution')?></p>
 
+<p><a href="https://blog.calendarscripts.info/using-the-data-shortcodes-in-shortcode-revolution/" target="_blank"><?php _e('Learn more about using these shortcodes here.', 'shortcode-revolution');?></a></p>
+
 <h3><?php _e('Custom Shortcodes', 'shortcode-revolution')?></h3>
 
 <p><?php _e('This is an easy way to create predefined pieces of content which you can save and use anywhere. Editing the shortcode in the generator will automatically reflect all occurrences of this shortcode in your site.', 'shortcode-revolution')?></p>

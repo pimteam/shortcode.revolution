@@ -473,6 +473,8 @@
 	    		  	
 	    		  	<p><?php _e('These shortcodes allow you to publish data and meta data regarding an user. They are good for using on profile pages, author pages, and so on','shortcode-revolution');?></p>
 	    		  	
+	    		  	<p><a href="https://blog.calendarscripts.info/using-the-data-shortcodes-in-shortcode-revolution/" target="_blank"><?php _e('Learn more about using these shortcodes here.', 'shortcode-revolution');?></a></p>
+	    		  	
 	    		  	<p><?php _e('Pull data for:', 'shortcode-revolution');?> <select name="user_id" onchange="srevoDataChangeUserID(this.value);">
 	    		  		<option value="logged_in" <?php if(!empty($_POST['user_id']) and $_POST['user_id'] == 'logged_in') echo 'selected';?>><?php _e('The user that is logged in', 'shortcode-revolution');?></option>
 	    		  		<option value="specific" <?php if(!empty($_POST['user_id']) and $_POST['user_id'] == 'specific') echo 'selected';?>><?php _e('Specific user ID', 'shortcode-revolution');?></option>
