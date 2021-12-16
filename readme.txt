@@ -4,7 +4,7 @@ Tags: shortcodes, buttons, tabs, tables, carousel, grid, user profile
 Requires at least: 4.2
 Requires PHP: 7.0
 Tested up to: 5.8
-Stable tag: 0.4.1
+Stable tag: 0.4.2
 License: GPLv2 or later
 
 Shortcode everything. The low code / no code tool for WordPress developers, designers, and power users.
@@ -130,8 +130,9 @@ None yet, please ask in the forum
 
 == Changelog ==
 
-= Version 0.4.1 =
+= Version 0.4.2 =
 1. Added documentation for data shortcodes.
+2. Fixed usses with improper except in the loop of the post related shortcodes.
 
 = Version 0.4 = 
 1. Cleanup of new lines and wpautop() from the grid / columns shortcode and the generator.

@@ -53,12 +53,16 @@ msgstr ""
 msgid "Registration date / time:"
 msgstr ""
 
-#: controllers/popups.php:21
+#: controllers/popups.php:20
 msgid "Open modal"
 msgstr ""
 
-#: controllers/popups.php:23
+#: controllers/popups.php:22
 msgid "Close"
+msgstr ""
+
+#: controllers/tables.php:13
+msgid "Invalid data source"
 msgstr ""
 
 #: controllers/tabs.php:54
@@ -606,86 +610,82 @@ msgid "These shortcodes allow you to publish data and meta data regarding an use
 msgstr ""
 
 #: views/generator.html.php:476
-msgid "Learn more about using these shortcodes here."
-msgstr ""
-
-#: views/generator.html.php:478
 msgid "Pull data for:"
 msgstr ""
 
-#: views/generator.html.php:479
+#: views/generator.html.php:477
 msgid "The user that is logged in"
 msgstr ""
 
-#: views/generator.html.php:480
+#: views/generator.html.php:478
 msgid "Specific user ID"
 msgstr ""
 
-#: views/generator.html.php:481
+#: views/generator.html.php:479
 msgid "User ID passed as URL parameter"
 msgstr ""
 
-#: views/generator.html.php:484
+#: views/generator.html.php:482
 msgid "ID:"
 msgstr ""
 
-#: views/generator.html.php:488
+#: views/generator.html.php:486
 msgid "Variable name:"
 msgstr ""
 
-#: views/generator.html.php:492
+#: views/generator.html.php:490
 msgid "Profile field or meta value:"
 msgstr ""
 
-#: views/generator.html.php:493
+#: views/generator.html.php:491
 msgid "All fields"
 msgstr ""
 
-#: views/generator.html.php:495
+#: views/generator.html.php:493
 msgid "User profile fields"
 msgstr ""
 
-#: views/generator.html.php:497
+#: views/generator.html.php:495
 msgid "Username (login)"
 msgstr ""
 
-#: views/generator.html.php:498
+#: views/generator.html.php:496
 msgid "Email address"
 msgstr ""
 
-#: views/generator.html.php:499
+#: views/generator.html.php:497
 msgid "First name"
 msgstr ""
 
-#: views/generator.html.php:500
+#: views/generator.html.php:498
 msgid "Last name"
 msgstr ""
 
-#: views/generator.html.php:501
+#: views/generator.html.php:499
 msgid "Display name"
 msgstr ""
 
-#: views/generator.html.php:502
+#: views/generator.html.php:500
 msgid "User roles"
 msgstr ""
 
-#: views/generator.html.php:503
+#: views/generator.html.php:501
 msgid "Registration date/time"
 msgstr ""
 
-#: views/generator.html.php:505
+#: views/generator.html.php:503
 msgid "Meta data fields"
 msgstr ""
 
-#: views/generator.html.php:536
+#: views/generator.html.php:534
 msgid "Create a new custom shortcode"
 msgstr ""
 
-#: views/generator.html.php:541
+#: views/generator.html.php:539
 msgid "Shortcode"
 msgstr ""
 
-#: views/generator.html.php:541
+#: views/generator.html.php:539
 msgid "Edit"
 msgstr ""
 
@@ -782,27 +782,27 @@ msgstr ""
 msgid "We currently support <b>user data</b> shortcode. This shortcode allows you pull data for the currently logged in user, a predefined user, or an user defined by an URL parameter. The shortcode can return data for a specific field of the user profile or use meta, or return the whole user data in a string with variables. In the latter case this is given to you as enclosed content of the shortcode and you can fully modify it before placing it anywhere in your site."
 msgstr ""
 
-#: views/help.html.php:62
+#: views/help.html.php:60
 msgid "This is an easy way to create predefined pieces of content which you can save and use anywhere. Editing the shortcode in the generator will automatically reflect all occurrences of this shortcode in your site."
 msgstr ""
 
-#: views/help.html.php:64
+#: views/help.html.php:62
 msgid "Overriding Shortcode Revolution Templates"
 msgstr ""
 
-#: views/help.html.php:66
+#: views/help.html.php:64
 msgid "Some of the default designs of the shortcodes - currently for posts, comments, and grid shortcodes - can be overridden with your own versions. To do this create a folder called \"shortcode-revolution\" inside your WP theme folder. Copy the associated view file from our plugin to that folder and make your changes there. The plugin will use your version and your changes will not be lost when you apply updates to the plugin."
 msgstr ""
 
-#: views/help.html.php:68
+#: views/help.html.php:66
 msgid "For example if you want to override the carousel for posts, copy the file views/posts-carousel.html.php and make changes to the copy."
 msgstr ""
 
-#: views/help.html.php:70
+#: views/help.html.php:68
 msgid "Help and Customziation"
 msgstr ""
 
-#: views/help.html.php:72
+#: views/help.html.php:70
 msgid "If you are looking for a shortcode or a feature which is not yet available in the plugin you can contact us at <a href=\"mailto:support@kibokolabs.com\">support@kibokolabs.com</a>. Some of the suggestions can be added to the plugin. In other cases we can offer you custom development service."
 msgstr ""
 

@@ -9,6 +9,8 @@
 			<ul class="srevo-posts-ul srevo-carousel" id="srevo-slideshow<?php echo $post->ID?>">
 	 
 				<?php foreach($posts as $p):
+				   $post = $p;
+					setup_postdata($post);
 					$background_image =  has_post_thumbnail( $p->ID )  ?  get_the_post_thumbnail_url($p->ID) : ''; 
 					$excerpt = get_the_excerpt($p->ID);?>
 				<li id="srevo-post-id-<?php echo $p->ID?>" style="background-image: url(<?php echo esc_attr($background_image);?>);">
@@ -96,7 +98,7 @@
      padding: 0.75em 1.5em;
      font-size: 1em;
      background: #000000; /* fallback for old browsers */
-     background: rgba(0, 0, 0, 0.8);
+     background: rgba(0, 0, 0, 0.3);
  }
 </style>
 

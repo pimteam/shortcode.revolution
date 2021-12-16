@@ -94,12 +94,19 @@ class ShortcodeRevolutionPosts extends ShortcodeRevolutionShortcode {
 		} // end categories
 		
 		//$query['nopaging'] = true;
-		$query['posts_per_page'] = (empty($atts['num']) or !is_numeric($atts['num'])) ? 3 : intval($atts['num']);       
+		$query['posts_per_page'] = (empty($atts['num']) or !is_numeric($atts['num'])) ? 4 : intval($atts['num']) + 1;       
 		$query['orderby'] = 'rand';
-		$query['post__not_in'] = [$post->ID];
 		
 		$wp_query = new WP_Query($query);
 		$posts = $wp_query->posts;
+		
+		// post__not_in does not work properly! for this reason skip the current post in PHP
+		$posts = array_filter($posts, function($p) use($post_id) {				
+				return ($p->ID != $post_id);					
+		});
+		
+		// if the current post was not there we have one more than needed
+		if($query['posts_per_page'] < count($posts)) array_pop($posts);
 		
 		$display_mode = empty($atts['display_mode']) ? 'regular' : $atts['display_mode'];
 		if(!in_array($display_mode, ['regular', 'list', 'carousel'])) $display_mode = 'regular';

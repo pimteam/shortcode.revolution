@@ -4,7 +4,9 @@
 
 	<?php if ( count($posts)) : ?>
 
-		<?php foreach($posts as $p): ?>
+		<?php foreach($posts as $p): 
+			$post = $p;
+			setup_postdata($post);?>
 
 			<div id="srevo-post-<?php $p->ID ?>" class="srevo-post">
 
